@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="424.0" prefWidth="520.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.AdminPage">
+   <children>
+      <Label layoutX="14.0" layoutY="5.0" prefHeight="10.0" prefWidth="247.0" text="List of Municipality Members">
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="29.0" prefHeight="339.0" prefWidth="492.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <ListView fx:id="idList" layoutX="40.0" layoutY="23.0" prefHeight="315.0" prefWidth="59.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="99.0" layoutY="6.0" prefHeight="17.0" prefWidth="116.0" text="Full Name" />
+            <ListView fx:id="nameList" layoutX="99.0" layoutY="23.0" prefHeight="315.0" prefWidth="107.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="32.0" layoutY="6.0" prefHeight="17.0" prefWidth="67.0" text="ID" />
+            <ListView fx:id="roleList" layoutX="203.0" layoutY="23.0" prefHeight="315.0" prefWidth="86.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="202.0" layoutY="6.0" prefHeight="17.0" prefWidth="86.0" text="Role" />
+            <ListView fx:id="yearList" layoutX="288.0" layoutY="23.0" prefHeight="315.0" prefWidth="53.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="289.0" layoutY="6.0" prefHeight="17.0" prefWidth="53.0" text="Recruited" />
+            <ListView fx:id="paycheckList" layoutX="410.0" layoutY="23.0" prefHeight="315.0" prefWidth="79.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="410.0" layoutY="5.0" prefHeight="17.0" prefWidth="79.0" text="Paycheck" />
+            <Line endX="-7.62939453125E-6" endY="8.333335876464844" layoutX="99.0" layoutY="15.0" startX="-1.52587890625E-5" startY="-14.000003814697266" />
+            <Line endX="65.0" endY="-60.0" layoutX="223.0" layoutY="60.0" startX="65.0" startY="-36.66667175292969" />
+            <Line endX="94.0" endY="-118.0" layoutX="248.0" layoutY="141.0" startX="94.0" startY="-140.66665649414062" />
+            <ListView fx:id="indexList" layoutY="23.0" prefHeight="315.0" prefWidth="40.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutY="6.0" prefHeight="17.0" prefWidth="40.0" text="NUM" />
+            <Line endX="-69.0" endY="-2.0000076293945312" layoutX="109.0" layoutY="25.0" startX="-69.0" startY="-25.000003814697266" />
+            <ListView fx:id="baseSalaryList" layoutX="342.0" layoutY="23.0" prefHeight="315.0" prefWidth="67.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="342.0" layoutY="5.0" prefHeight="17.0" prefWidth="67.0" text="Base Salary" />
+            <Line endX="177.66668701171875" endY="-69.66666412353516" layoutX="233.0" layoutY="70.0" startX="177.66668701171875" startY="-47.66666030883789" />
+            <Line endX="2.0" endY="-49.000003814697266" layoutX="201.0" layoutY="49.0" startX="2.0" startY="-26.000003814697266" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="addButton" layoutX="21.0" layoutY="384.0" mnemonicParsing="false" onAction="#pressedAdd" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #FF5733;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="removeButton" layoutX="89.0" layoutY="384.0" mnemonicParsing="false" onAction="#pressedRemove" style="-fx-background-color: #FF5733;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="editButton" layoutX="294.0" layoutY="384.0" mnemonicParsing="false" onAction="#pressedEdit" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #FF5733;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField fx:id="editTextfield" layoutX="362.0" layoutY="384.0" prefHeight="25.0" prefWidth="134.0" />
+      <Button fx:id="logoutButton" layoutX="456.0" layoutY="3.0" mnemonicParsing="false" onAction="#pressedLogout" prefHeight="18.0" prefWidth="49.0" style="-fx-background-color: #FF5733;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font></Button>
+      <Button fx:id="refreshButton" layoutX="429.0" layoutY="3.0" mnemonicParsing="false" onAction="#pressedRefresh" prefHeight="22.0" prefWidth="23.0" style="-fx-background-color: #FF5733;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="433.0" layoutY="5.0">
+         <image>
+            <Image url="@../../../../refresh.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.MayorAddPage">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="293.0" text="Create a New Department">
+         <font>
+            <Font name="Verdana Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="9.0" layoutY="66.0" prefHeight="19.0" prefWidth="131.0" text="Department Type:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="8.0" layoutY="262.0" prefHeight="19.0" prefWidth="131.0" text="Department">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="9.0" layoutY="225.0" prefHeight="19.0" prefWidth="131.0" text="Department Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputName" layoutX="152.0" layoutY="222.0" prefHeight="25.0" prefWidth="138.0" promptText="e.g. Chamran University" />
+      <Label alignment="CENTER" layoutX="13.0" layoutY="281.0" prefHeight="19.0" prefWidth="131.0" text="Establishment Year:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputYear" layoutX="151.0" layoutY="268.0" prefHeight="25.0" prefWidth="138.0" promptText="e.g. 1950" />
+      <Button fx:id="createButton" layoutX="74.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressedCreate" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #FF5733FF;" text="Create" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="cancelButton" layoutX="170.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressedCancel" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #FF5733FF;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <RadioButton fx:id="airportBox" layoutX="157.0" layoutY="67.0" mnemonicParsing="false" onAction="#selectedBox" text="Airport">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="type" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="hospitalBox" layoutX="157.0" layoutY="93.0" mnemonicParsing="false" onAction="#selectedBox" text="Hospital" toggleGroup="$type">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="universityBox" layoutX="157.0" layoutY="119.0" mnemonicParsing="false" onAction="#selectedBox" text="University" toggleGroup="$type">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="libraryBox" layoutX="157.0" layoutY="144.0" mnemonicParsing="false" onAction="#selectedBox" text="Library" toggleGroup="$type">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="instituteBox" layoutX="157.0" layoutY="169.0" mnemonicParsing="false" onAction="#selectedBox" text="Institute" toggleGroup="$type">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </RadioButton>
+   </children>
 </AnchorPane>
