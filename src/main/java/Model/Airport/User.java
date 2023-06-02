@@ -3,7 +3,11 @@ public class User
 {
     //Attributes
     private int id;
-    private String fullname, username, password, phone, email;
+    private String fullname;
+    private String username;
+    private String password;
+    private String phone;
+    private String email;
 
     //Constructor
     public User(int id, String fullname, String username, String password, String phone, String email) {

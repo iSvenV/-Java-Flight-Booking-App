@@ -9,4 +9,12 @@ public class Passenger extends User
         super(id, fullname, username, password, phone, email);
         this.currency = currency;
     }
+
+    //Getter-Setter
+    public double getCurrency() {
+        return currency;
+    }
+    public void setCurrency(double currency) {
+        this.currency = currency;
+    }
 }
