@@ -78,6 +78,11 @@
                   <Font size="10.0" />
                </font>
             </CheckBox>
+            <Button fx:id="departmentButton" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="353.0" mnemonicParsing="false" onAction="#pressedChange" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: transparent;" text="change department" textFill="#ff5733" underline="true">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </right>

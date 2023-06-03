@@ -27,7 +27,7 @@ public class Main extends Application
         }
         //else readFile();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/LoginPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/DepartmentSelection.fxml"));
         Parent root = null;
         try { root = fxmlLoader.load(); }
         catch(Exception e) { Main.appendToFile(e); }

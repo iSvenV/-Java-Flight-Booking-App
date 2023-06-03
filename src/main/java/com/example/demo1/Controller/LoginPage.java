@@ -21,6 +21,8 @@ public class LoginPage implements Initializable
     @FXML
     private Button buttonEnter;
     @FXML
+    private Button departmentButton;
+    @FXML
     private PasswordField inputPassword;
     @FXML
     private TextField inputUsername;
@@ -66,6 +68,11 @@ public class LoginPage implements Initializable
             sceneSwitch("MayorPage.fxml", event);
         else
             loginChecker.setText("username or password is wrong!");
+    }
+
+    @FXML
+    void pressedChange(ActionEvent event) throws IOException {
+        sceneSwitch("DepartmentSelection.fxml", event);
     }
 
     @FXML
