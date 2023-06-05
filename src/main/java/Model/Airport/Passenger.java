@@ -2,19 +2,19 @@ package Model.Airport;
 public class Passenger extends User
 {
     //Unique Attributes
-    private double currency;
+    private double wallet;
 
     //Constructor
-    public Passenger(int id, String fullname, String username, String password, String phone, String email, double currency) {
+    public Passenger(int id, String fullname, String username, String password, String phone, String email, double wallet) {
         super(id, fullname, username, password, phone, email);
-        this.currency = currency;
+        this.wallet = wallet;
     }
 
     //Getter-Setter
-    public double getCurrency() {
-        return currency;
+    public double getWallet() {
+        return wallet;
     }
-    public void setCurrency(double currency) {
-        this.currency = currency;
+    public void setWallet(double currency) {
+        this.wallet = currency;
     }
 }

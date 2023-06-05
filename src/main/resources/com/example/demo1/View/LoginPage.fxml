@@ -6,6 +6,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Circle?>
@@ -54,6 +56,16 @@
                   <DropShadow />
                </effect>
             </Label>
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="7.0" layoutY="5.0">
+               <image>
+                  <Image url="@../../../../back.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="departmentButton" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="7.0" mnemonicParsing="false" onAction="#pressedChange" prefHeight="25.0" prefWidth="45.0" style="-fx-background-color: trans;" textFill="#ff5733" underline="true">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
@@ -78,11 +90,6 @@
                   <Font size="10.0" />
                </font>
             </CheckBox>
-            <Button fx:id="departmentButton" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="353.0" mnemonicParsing="false" onAction="#pressedChange" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: transparent;" text="change department" textFill="#ff5733" underline="true">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
    </right>

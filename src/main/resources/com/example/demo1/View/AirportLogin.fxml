@@ -6,6 +6,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Circle?>
@@ -16,6 +18,11 @@
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="294.0" style="-fx-background-color: #33adff;" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="7.0" layoutY="5.0">
+               <image>
+                  <Image url="@../../../../back.png" />
+               </image>
+            </ImageView>
             <Circle fill="TRANSPARENT" layoutX="147.0" layoutY="200.0" radius="114.0" stroke="WHITE" strokeType="INSIDE" />
             <Line endX="101.33331298828125" endY="0.3333282470703125" layoutX="147.0" layoutY="209.0" startX="-102.0" startY="0.3333282470703125" stroke="WHITE">
                <effect>
@@ -54,6 +61,11 @@
                   <DropShadow />
                </effect>
             </Label>
+            <Button fx:id="departmentButton" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="7.0" mnemonicParsing="false" onAction="#pressedChange" prefHeight="25.0" prefWidth="45.0" style="-fx-background-color: transparent;" textFill="#33adff" underline="true">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
@@ -78,7 +90,7 @@
                   <Font size="10.0" />
                </font>
             </CheckBox>
-            <Button fx:id="departmentButton" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="353.0" mnemonicParsing="false" onAction="#pressedChange" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: transparent;" text="change department" textFill="#33adff" underline="true">
+            <Button fx:id="buttonCreate" layoutX="56.0" layoutY="340.0" mnemonicParsing="false" onAction="#pressedCreate" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: trans;" text="create a new account" textFill="#33adff">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>

@@ -1,4 +1,5 @@
 package com.example.demo1;
+import Model.Airport.Passenger;
 import Model.Departments.*;
 import Model.Persons.*;
 import javafx.application.Application;
@@ -57,6 +58,9 @@ public class Main extends Application
 //    public static ArrayList<Institute> institutes = new ArrayList<>();
 //    public static ArrayList<Library> libraries = new ArrayList<>();
 //    public static ArrayList<University> universities = new ArrayList<>();
+
+    public static ArrayList<Passenger> passengers = new ArrayList<>();
+    public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
 
     private static void initiate() {
         Deputy deputy = new Deputy("name2", 2, 2022, 500);

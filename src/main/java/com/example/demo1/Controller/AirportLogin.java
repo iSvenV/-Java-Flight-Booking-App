@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +25,8 @@ public class AirportLogin implements Initializable
 {
     @FXML
     private Button buttonEnter;
+    @FXML
+    private Button buttonCreate;
     @FXML
     private Button departmentButton;
     @FXML
@@ -67,16 +70,31 @@ public class AirportLogin implements Initializable
             pwdInput = passwordVisible.getText();
 
         if(userInput.equals(Main.admin.getUsername()) && pwdInput.equals(Main.admin.getPassword()))
-            sceneSwitch("AdminPage.fxml", event);
+            sceneSwitch("AdminPage.fxml", event, 520, 400);
         else if(userInput.equals(Main.mayor.getUsername()) && pwdInput.equals(Main.mayor.getPassword()))
-            sceneSwitch("MayorPage.fxml", event);
+            sceneSwitch("MayorPage.fxml", event, 520, 400);
         else
             loginChecker.setText("username or password is wrong!");
     }
 
     @FXML
+    void pressedCreate(ActionEvent event) throws IOException {
+        //sceneSwitch("AirportSignup.fxml", event, 374, 455);
+        Stage addStage = new Stage();
+        addStage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/AirportSignup.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 374, 455);
+        addStage.getIcons().add(new Image("icon.png"));
+        addStage.setTitle("Munix");
+        addStage.setResizable(false);
+        addStage.setScene(scene);
+        addStage.show();
+    }
+
+    @FXML
     void pressedChange(ActionEvent event) throws IOException {
-        sceneSwitch("DepartmentSelection.fxml", event);
+        sceneSwitch("DepartmentSelection.fxml", event, 520, 400);
     }
 
     @FXML
@@ -92,12 +110,12 @@ public class AirportLogin implements Initializable
         passwordVisible.setVisible(false);
     }
 
-    public void sceneSwitch(String url, ActionEvent event) throws IOException {
+    public void sceneSwitch(String url, ActionEvent event, int x, int y) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
         Parent root = fxmlLoader.load();
         Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        Scene scene = new Scene(root, 520, 424);
+        Scene scene = new Scene(root, x, y);
         primaryStage.getIcons().add(new Image("icon.png"));
         primaryStage.setTitle("Munix");
         primaryStage.setResizable(false);
