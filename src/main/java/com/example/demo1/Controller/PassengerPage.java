@@ -31,6 +31,8 @@ public class PassengerPage implements Initializable
     private Button profileButton;
     @FXML
     private Button ticketsButton;
+    @FXML
+    private Button mailButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -51,12 +53,17 @@ public class PassengerPage implements Initializable
     }
 
     @FXML
-    void pressedProfile(ActionEvent event) {
-
+    void pressedProfile(ActionEvent event) throws IOException {
+        sceneSwitch("PassengerEdit.fxml", event, 520, 400);
     }
 
     @FXML
     void pressedTickets(ActionEvent event) {
+
+    }
+
+    @FXML
+    void pressedMail(ActionEvent event) {
 
     }
 

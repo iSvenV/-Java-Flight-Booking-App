@@ -5,56 +5,60 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: #33adff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.PassengerPage">
    <children>
       <AnchorPane layoutX="19.0" layoutY="18.0" prefHeight="363.0" prefWidth="481.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <Label layoutX="21.0" layoutY="21.0" prefHeight="30.0" prefWidth="141.0" text="Welcome, " textFill="#33adff">
+            <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="141.0" text="Welcome, " textFill="#33adff">
                <font>
                   <Font name="Verdana Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="greetLabel" layoutX="162.0" layoutY="21.0" prefHeight="30.0" prefWidth="141.0" textFill="#33adff">
+            <Label fx:id="greetLabel" layoutX="162.0" layoutY="14.0" prefHeight="30.0" prefWidth="305.0" textFill="#33adff">
                <font>
                   <Font name="Verdana Bold" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="buyButton" layoutX="131.0" layoutY="115.0" mnemonicParsing="false" onAction="#pressedBuy" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="BUY TICKET" textFill="WHITE">
+            <Button fx:id="buyButton" layoutX="131.0" layoutY="86.0" mnemonicParsing="false" onAction="#pressedBuy" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="BUY TICKET" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="chargeButton" layoutX="131.0" layoutY="159.0" mnemonicParsing="false" onAction="#pressedCharge" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="CHARGE WALLET" textFill="WHITE">
+            <Button fx:id="chargeButton" layoutX="131.0" layoutY="130.0" mnemonicParsing="false" onAction="#pressedCharge" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="CHARGE WALLET" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="ticketsButton" layoutX="131.0" layoutY="203.0" mnemonicParsing="false" onAction="#pressedTickets" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="VIEW RESERVED TICKETS" textFill="WHITE">
+            <Button fx:id="ticketsButton" layoutX="131.0" layoutY="174.0" mnemonicParsing="false" onAction="#pressedTickets" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="VIEW RESERVED TICKETS" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="profileButton" layoutX="131.0" layoutY="247.0" mnemonicParsing="false" onAction="#pressedProfile" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="EDIT PROFILE" textFill="WHITE">
+            <Button fx:id="profileButton" layoutX="131.0" layoutY="218.0" mnemonicParsing="false" onAction="#pressedProfile" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="EDIT PROFILE" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="logoutButton" layoutX="131.0" layoutY="291.0" mnemonicParsing="false" onAction="#pressedLogout" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="LOG OUT" textFill="WHITE">
+            <Button fx:id="logoutButton" layoutX="131.0" layoutY="306.0" mnemonicParsing="false" onAction="#pressedLogout" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="LOG OUT" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="21.0" layoutY="51.0" prefHeight="30.0" prefWidth="67.0" text="Balance:">
+            <Label layoutX="21.0" layoutY="44.0" prefHeight="30.0" prefWidth="67.0" text="Balance:">
                <font>
                   <Font name="Verdana Bold Italic" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="balanceLabel" layoutX="92.0" layoutY="51.0" prefHeight="30.0" prefWidth="67.0">
+            <Label fx:id="balanceLabel" layoutX="92.0" layoutY="44.0" prefHeight="30.0" prefWidth="159.0">
                <font>
                   <Font name="Verdana Bold Italic" size="13.0" />
                </font>
             </Label>
+            <Button fx:id="mailButton" layoutX="131.0" layoutY="262.0" mnemonicParsing="false" onAction="#pressedMail" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="SEND FEEDBACK" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
