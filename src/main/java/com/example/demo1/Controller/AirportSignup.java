@@ -1,13 +1,21 @@
 package com.example.demo1.Controller;
+import Model.Airport.Passenger;
+import com.example.demo1.Main;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
-public class AirportSignup
+public class AirportSignup implements Initializable
 {
     @FXML
     private Button buttonBack;
@@ -32,6 +40,61 @@ public class AirportSignup
     @FXML
     private TextField inputUsername;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        buttonCreate.setDisable(true);
+
+        inputID.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                if(!(t1.equals("")))
+                    inputFirstname.textProperty().addListener(new ChangeListener<String>() {
+                        @Override
+                        public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                            if(!(t1.equals("")))
+                                inputLastname.textProperty().addListener(new ChangeListener<String>() {
+                                    @Override
+                                    public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                        if(!(t1.equals("")))
+                                            inputUsername.textProperty().addListener(new ChangeListener<String>() {
+                                                @Override
+                                                public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                    if(!(t1.equals("")))
+                                                        inputPassword1.textProperty().addListener(new ChangeListener<String>() {
+                                                            @Override
+                                                            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                                if(!(t1.equals("")))
+                                                                    inputPassword2.textProperty().addListener(new ChangeListener<String>() {
+                                                                        @Override
+                                                                        public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                                            if(!(t1.equals("")))
+                                                                                inputPhone.textProperty().addListener(new ChangeListener<String>() {
+                                                                                    @Override
+                                                                                    public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                                                        if(!(t1.equals("")))
+                                                                                            inputEmail.textProperty().addListener(new ChangeListener<String>() {
+                                                                                                @Override
+                                                                                                public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                                                                    if (!(t1.equals("")))
+                                                                                                        buttonCreate.setDisable(false);
+                                                                                                }
+                                                                                            });
+                                                                                    }
+                                                                                });
+                                                                        }
+                                                                    });
+                                                            }
+                                                        });
+                                                }
+                                            });
+                                    }
+                                });
+                        }
+                    });
+            }
+        });
+    }
+
     @FXML
     void pressedBack(ActionEvent event) {
         Stage addStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -40,6 +103,77 @@ public class AirportSignup
 
     @FXML
     void pressedCreate(ActionEvent event) {
-        //time to learn regex
+        int id = 0;
+        try{ id = Integer.parseInt(inputID.getText()); }
+        catch(Exception e) {
+            checker.setText("ID input is invalid!");
+            System.out.println("Couldn't Cast String to Integer!");
+            Main.appendToFile(e);
+            return;
+        }
+
+        int phone = 0;
+        try{ phone = Integer.parseInt(inputPhone.getText()); }
+        catch(Exception e) {
+            checker.setText("Phone Number is invalid!");
+            System.out.println("Couldn't Cast String to Integer!");
+            Main.appendToFile(e);
+            return;
+        }
+
+        String firstname, lastname;
+        if(regexAlpha(inputFirstname.getText()) && regexAlpha(inputLastname.getText())) {
+            firstname=inputFirstname.getText();
+            lastname=inputLastname.getText();
+        }
+        else {
+            checker.setText("Only alphabets are valid for Firstname & Lastname!");
+            return;
+        }
+
+        String username;
+        if(regexAlphaNum(  inputUsername.getText()))
+            username=inputUsername.getText();
+        else {
+            checker.setText("Only alphabets & numbers are valid for username!");
+            return;
+        }
+
+        String email;
+        if(regexEmail(inputEmail.getText()))
+            email=inputEmail.getText();
+        else {
+            checker.setText("email format is invalid! (example@domain.com)");
+            return;
+        }
+
+        String password;
+        if(inputPassword1.getText().equals(inputPassword2.getText()))
+            password=inputPassword1.getText();
+        else {
+            checker.setText("failed to confirm password!");
+            return;
+        }
+
+        Passenger obj = new Passenger(id, firstname+" "+lastname, username, password, phone+"", email);
+        Main.passengers.add(obj);
+
+        Stage addStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        addStage.close();
+    }
+
+    public static boolean regexAlpha(String str) {
+        Pattern p = Pattern.compile("^[a-zA-Z]*$");
+        return p.matcher(str).find();
+    }
+
+    public static boolean regexAlphaNum(String str) {
+        Pattern p = Pattern.compile("^[A-Za-z0-9]*$");
+        return p.matcher(str).find();
+    }
+
+    public static boolean regexEmail(String str) {
+        Pattern p = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", Pattern.CASE_INSENSITIVE);
+        return p.matcher(str).find();
     }
 }

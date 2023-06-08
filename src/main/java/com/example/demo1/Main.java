@@ -1,5 +1,6 @@
 package com.example.demo1;
 import Model.Airport.Passenger;
+import Model.Airport.User;
 import Model.Departments.*;
 import Model.Persons.*;
 import javafx.application.Application;

@@ -5,9 +5,8 @@ public class Passenger extends User
     private double wallet;
 
     //Constructor
-    public Passenger(int id, String fullname, String username, String password, String phone, String email, double wallet) {
+    public Passenger(int id, String fullname, String username, String password, String phone, String email) {
         super(id, fullname, username, password, phone, email);
-        this.wallet = wallet;
     }
 
     //Getter-Setter

@@ -1,4 +1,8 @@
 package com.example.demo1.Controller;
+import Model.Airport.Employee;
+import Model.Airport.Passenger;
+import Model.Airport.User;
+import Model.Departments.Department;
 import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -60,6 +64,7 @@ public class AirportLogin implements Initializable
         });
     }
 
+    public static int userIndex;
     @FXML
     void pressedEnter(ActionEvent event) throws IOException {
         String userInput = inputUsername.getText();
@@ -69,12 +74,23 @@ public class AirportLogin implements Initializable
         else
             pwdInput = passwordVisible.getText();
 
-        if(userInput.equals(Main.admin.getUsername()) && pwdInput.equals(Main.admin.getPassword()))
-            sceneSwitch("AdminPage.fxml", event, 520, 400);
-        else if(userInput.equals(Main.mayor.getUsername()) && pwdInput.equals(Main.mayor.getPassword()))
-            sceneSwitch("MayorPage.fxml", event, 520, 400);
-        else
-            loginChecker.setText("username or password is wrong!");
+        for (Passenger obj : Main.passengers) {
+            if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
+                userIndex= Main.passengers.indexOf(obj);
+                sceneSwitch("PassengerPage.fxml", event, 520, 400);
+                return;
+            }
+        }
+
+        for (Employee obj : Main.employees) {
+            if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
+                userIndex= Main.employees.indexOf(obj);
+                sceneSwitch("EmployeePage.fxml", event, 520, 400);
+                return;
+            }
+        }
+
+        loginChecker.setText("username or password is wrong!");
     }
 
     @FXML
