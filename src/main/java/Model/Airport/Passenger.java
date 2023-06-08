@@ -13,7 +13,11 @@ public class Passenger extends User
     public double getWallet() {
         return wallet;
     }
-    public void setWallet(double currency) {
-        this.wallet = currency;
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
+    }
+    //Wallet Increment
+    public void incrementWallet(double value) {
+        this.wallet += value;
     }
 }

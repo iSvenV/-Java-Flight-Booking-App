@@ -48,8 +48,8 @@ public class PassengerPage implements Initializable
     }
 
     @FXML
-    void pressedCharge(ActionEvent event) {
-
+    void pressedCharge(ActionEvent event) throws IOException {
+        sceneSwitch("PassengerCharge.fxml", event, 520, 400);
     }
 
     @FXML
