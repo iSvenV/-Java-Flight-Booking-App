@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: #33adff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.AdminMenu">
+    <children>
+        <AnchorPane layoutX="19.0" layoutY="18.0" prefHeight="363.0" prefWidth="481.0" style="-fx-background-color: white; -fx-border-color: black;">
+            <children>
+                <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="141.0" text="Welcome! " textFill="#33adff">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="passengersButton" layoutX="30.0" layoutY="86.0" mnemonicParsing="false" onAction="#pressedPassengers" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="MANAGE PASSENGERS" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="employeesButton" layoutX="30.0" layoutY="130.0" mnemonicParsing="false" onAction="#pressedEmployees" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="MANAGE EMPLOYEES" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="managersButton" layoutX="30.0" layoutY="174.0" mnemonicParsing="false" onAction="#pressedManagers" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="MANAGE MANAGERS" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="profileButton" layoutX="30.0" layoutY="218.0" mnemonicParsing="false" onAction="#pressedProfile" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="EDIT PROFILE" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="logoutButton" layoutX="139.0" layoutY="266.0" mnemonicParsing="false" onAction="#pressedLogout" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="LOG OUT" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="mailButton" layoutX="249.0" layoutY="218.0" mnemonicParsing="false" onAction="#pressedMail" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="READ FEEDBACK" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+            <Button fx:id="financialsButton" layoutX="249.0" layoutY="86.0" mnemonicParsing="false" onAction="#pressedFinancials" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="FINANCIALS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="flightsButton" layoutX="249.0" layoutY="130.0" mnemonicParsing="false" onAction="#pressedFlights" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="MANAGE FLIGHTS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="airplanesButton" layoutX="249.0" layoutY="174.0" mnemonicParsing="false" onAction="#pressedAirplanes" prefHeight="37.0" prefWidth="203.0" style="-fx-background-color: #33adff;" text="MANAGE AIRPLANES" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

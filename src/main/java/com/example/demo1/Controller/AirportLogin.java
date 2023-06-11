@@ -74,6 +74,11 @@ public class AirportLogin implements Initializable
         else
             pwdInput = passwordVisible.getText();
 
+        if(userInput.equals(Main.superAdmin.getUsername()) && pwdInput.equals(Main.superAdmin.getPassword())) {
+            sceneSwitch("AdminMenu.fxml", event, 520, 400);
+            return;
+        }
+
         for (Passenger obj : Main.passengers) {
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 userIndex= Main.passengers.indexOf(obj);
