@@ -104,7 +104,13 @@ public class AirportSignup implements Initializable
     @FXML
     void pressedCreate(ActionEvent event) {
         int id = 0;
-        try{ id = Integer.parseInt(inputID.getText()); }
+        try {
+            id = Integer.parseInt(inputID.getText());
+            if(!Main.checkID(id)) {
+                checker.setText("a user with this ID already exists!");
+                return;
+            }
+        }
         catch(Exception e) {
             checker.setText("ID input is invalid!");
             System.out.println("Couldn't Cast String to Integer!");
@@ -113,7 +119,13 @@ public class AirportSignup implements Initializable
         }
 
         int phone = 0;
-        try{ phone = Integer.parseInt(inputPhone.getText()); }
+        try {
+            phone = Integer.parseInt(inputPhone.getText());
+            if(!Main.checkPhone(phone+"")) {
+                checker.setText("a user with this phone number already exists!");
+                return;
+            }
+        }
         catch(Exception e) {
             checker.setText("Phone Number is invalid!");
             System.out.println("Couldn't Cast String to Integer!");
@@ -131,17 +143,27 @@ public class AirportSignup implements Initializable
             return;
         }
 
-        String username;
-        if(regexAlphaNum(  inputUsername.getText()))
-            username=inputUsername.getText();
+        String username = null;
+        if(regexAlphaNum(inputUsername.getText())) {
+            username = inputUsername.getText();
+            if (!Main.checkUsername(username)) {
+                checker.setText("a user with this username already exists!");
+                return;
+            }
+        }
         else {
             checker.setText("Only alphabets & numbers are valid for username!");
             return;
         }
 
-        String email;
-        if(regexEmail(inputEmail.getText()))
+        String email = null;
+        if(regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
+            if(!Main.checkEmail(email)) {
+                checker.setText("a user with this email alraedy exists!");
+                return;
+            }
+        }
         else {
             checker.setText("email format is invalid! (example@domain.com)");
             return;
@@ -157,6 +179,7 @@ public class AirportSignup implements Initializable
 
         Passenger obj = new Passenger(id, firstname+" "+lastname, username, password, phone+"", email);
         Main.passengers.add(obj);
+        Main.users.add(obj);
 
         Stage addStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         addStage.close();

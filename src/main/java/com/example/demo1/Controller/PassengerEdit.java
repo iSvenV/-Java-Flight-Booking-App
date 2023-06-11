@@ -64,7 +64,13 @@ public class PassengerEdit implements Initializable
     @FXML
     void pressedApply(ActionEvent event) {
         int id;
-        try{ id = Integer.parseInt(inputID.getText()); }
+        try {
+            id = Integer.parseInt(inputID.getText());
+            if(!Main.checkID(id)) {
+                checker.setText("a user with this ID already exists!");
+                return;
+            }
+        }
         catch(Exception e) {
             checker.setText("ID input is invalid!");
             System.out.println("Couldn't Cast String to Integer!");
@@ -74,7 +80,13 @@ public class PassengerEdit implements Initializable
         }
 
         int phone = 0;
-        try{ phone = Integer.parseInt(inputPhone.getText()); }
+        try {
+            phone = Integer.parseInt(inputPhone.getText());
+            if(!Main.checkPhone(phone+"")) {
+                checker.setText("a user with this phone number already exists!");
+                return;
+            }
+        }
         catch(Exception e) {
             checker.setText("Phone Number is invalid!");
             System.out.println("Couldn't Cast String to Integer!");
@@ -94,21 +106,29 @@ public class PassengerEdit implements Initializable
             return;
         }
 
-        String username;
-        if(AirportSignup.regexAlphaNum(inputUsername.getText()))
-            username=inputUsername.getText();
+        String username = null;
+        if(AirportSignup.regexAlphaNum(inputUsername.getText())) {
+            username = inputUsername.getText();
+            if (!Main.checkUsername(username)) {
+                checker.setText("a user with this username already exists!");
+                return;
+            }
+        }
         else {
             checker.setText("Only alphabets & numbers are valid for username!");
-            appliedLabel.setVisible(false);
             return;
         }
 
-        String email;
-        if(AirportSignup.regexEmail(inputEmail.getText()))
+        String email = null;
+        if(AirportSignup.regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
+            if(!Main.checkEmail(email)) {
+                checker.setText("a user with this email alraedy exists!");
+                return;
+            }
+        }
         else {
             checker.setText("email format is invalid! (example@domain.com)");
-            appliedLabel.setVisible(false);
             return;
         }
 

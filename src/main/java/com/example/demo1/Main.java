@@ -1,4 +1,5 @@
 package com.example.demo1;
+import Model.Airport.Manager;
 import Model.Airport.Passenger;
 import Model.Airport.User;
 import Model.Departments.*;
@@ -13,6 +14,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main extends Application
@@ -60,6 +62,8 @@ public class Main extends Application
 //    public static ArrayList<Library> libraries = new ArrayList<>();
 //    public static ArrayList<University> universities = new ArrayList<>();
 
+    public static ArrayList<User> users = new ArrayList<>();
+    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "091891929394", "admin@gmail.com",0, "Ahvaz");
     public static ArrayList<Passenger> passengers = new ArrayList<>();
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
 
@@ -96,6 +100,8 @@ public class Main extends Application
 //        institutes.add(Institute);
 //        libraries.add(library);
 //        universities.add(university);
+
+        users.add(superAdmin);
     }
 
     public static void appendToFile(Exception e) {
@@ -108,5 +114,37 @@ public class Main extends Application
         catch (Exception ie) {
             throw new RuntimeException("Cannot write the Exception to file", ie);
         }
+    }
+
+    public static boolean checkID(int id) {
+        for(User obj : users)  {
+            if(id == obj.getId())
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean checkUsername(String username) {
+        for(User obj : users)  {
+            if(username.equals(obj.getUsername()))
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean checkPhone(String phone) {
+        for(User obj : users)  {
+            if(phone.equals(obj.getPhone()))
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean checkEmail(String email) {
+        for(User obj : users)  {
+            if(email.equals(obj.getEmail()))
+                return false;
+        }
+        return true;
     }
 }
