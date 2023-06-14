@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: #33adff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.ManagerEdit">
+    <children>
+        <AnchorPane layoutX="19.0" layoutY="18.0" prefHeight="363.0" prefWidth="481.0" style="-fx-background-color: white; -fx-border-color: black;">
+            <children>
+                <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="155.0" text="Profile Edit" textFill="#33adff">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="backButton" layoutX="167.0" layoutY="320.0" mnemonicParsing="false" onAction="#pressedBack" prefHeight="30.0" prefWidth="69.0" style="-fx-background-color: #33adff;" text="BACK" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="applyButton" layoutX="245.0" layoutY="320.0" mnemonicParsing="false" onAction="#pressedApply" prefHeight="30.0" prefWidth="69.0" style="-fx-background-color: #33adff;" text="APPLY" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Label layoutX="21.0" layoutY="59.0" prefHeight="17.0" prefWidth="84.0" text="ID:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="91.0" prefHeight="17.0" prefWidth="84.0" text="Firstname:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="123.0" prefHeight="17.0" prefWidth="84.0" text="Lastname:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="155.0" prefHeight="17.0" prefWidth="84.0" text="Username:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="187.0" prefHeight="17.0" prefWidth="84.0" text="Password:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="219.0" prefHeight="17.0" prefWidth="124.0" text="Phone Number:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="251.0" prefHeight="17.0" prefWidth="84.0" text="Email:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="inputID" layoutX="166.0" layoutY="55.0" prefHeight="25.0" prefWidth="185.0" />
+                <TextField fx:id="inputFirstname" layoutX="166.0" layoutY="87.0" prefHeight="25.0" prefWidth="185.0" />
+                <TextField fx:id="inputLastname" layoutX="166.0" layoutY="119.0" prefHeight="25.0" prefWidth="185.0" />
+                <TextField fx:id="inputUsername" layoutX="166.0" layoutY="151.0" prefHeight="25.0" prefWidth="185.0" />
+                <TextField fx:id="inputPassword" layoutX="166.0" layoutY="183.0" prefHeight="25.0" prefWidth="185.0" />
+                <TextField fx:id="inputPhone" layoutX="166.0" layoutY="215.0" prefHeight="25.0" prefWidth="185.0" />
+                <TextField fx:id="inputEmail" layoutX="166.0" layoutY="247.0" prefHeight="25.0" prefWidth="185.0" />
+                <Label fx:id="checker" alignment="CENTER" layoutX="194.0" layoutY="20.0" prefHeight="17.0" prefWidth="263.0" textFill="RED" />
+                <Label fx:id="appliedLabel" alignment="CENTER" layoutX="194.0" layoutY="20.0" prefHeight="17.0" prefWidth="263.0" text="changes applied!" textFill="#16cc16" />
+                <Label layoutX="21.0" layoutY="283.0" prefHeight="17.0" prefWidth="84.0" text="Location:">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="inputLocation" layoutX="166.0" layoutY="279.0" prefHeight="25.0" prefWidth="185.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

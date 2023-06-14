@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EmployeeEdit implements Initializable
+public class ManagerEdit implements Initializable
 {
     @FXML
     private Label appliedLabel;
@@ -49,18 +49,18 @@ public class EmployeeEdit implements Initializable
         appliedLabel.setVisible(false);
         int index = AirportLogin.userIndex;
 
-        String fullname[] = Main.employees.get(index).getFullname().split(" ");
+        String fullname[] = Main.managers.get(index).getFullname().split(" ");
         String firstname = fullname[0];
         String lastname = fullname[1];
 
-        inputID.setText(Main.employees.get(index).getId()+"");
+        inputID.setText(Main.managers.get(index).getId()+"");
         inputFirstname.setText(firstname);
         inputLastname.setText(lastname);
-        inputUsername.setText(Main.employees.get(index).getUsername());
-        inputPassword.setText(Main.employees.get(index).getPassword());
-        inputPhone.setText(Main.employees.get(index).getPhone());
-        inputEmail.setText(Main.employees.get(index).getEmail());
-        inputLocation.setText(Main.employees.get(index).getAddress());
+        inputUsername.setText(Main.managers.get(index).getUsername());
+        inputPassword.setText(Main.managers.get(index).getPassword());
+        inputPhone.setText(Main.managers.get(index).getPhone());
+        inputEmail.setText(Main.managers.get(index).getEmail());
+        inputLocation.setText(Main.managers.get(index).getAddress());
     }
 
     @FXML
@@ -137,12 +137,12 @@ public class EmployeeEdit implements Initializable
         String password = inputPassword.getText();
 
         int index = AirportLogin.userIndex;
-        Main.employees.get(index).setId(id);
-        Main.employees.get(index).setFullname(firstname+" "+lastname);
-        Main.employees.get(index).setUsername(username);
-        Main.employees.get(index).setPassword(password);
-        Main.employees.get(index).setPhone(phone+"");
-        Main.employees.get(index).setEmail(email);
+        Main.managers.get(index).setId(id);
+        Main.managers.get(index).setFullname(firstname+" "+lastname);
+        Main.managers.get(index).setUsername(username);
+        Main.managers.get(index).setPassword(password);
+        Main.managers.get(index).setPhone(phone+"");
+        Main.managers.get(index).setEmail(email);
 
         checker.setText("");
         appliedLabel.setVisible(true);
@@ -150,6 +150,6 @@ public class EmployeeEdit implements Initializable
 
     @FXML
     void pressedBack(ActionEvent event) throws IOException {
-        Main.sceneSwitch("EmployeePage.fxml", event, 520, 400);
+        Main.sceneSwitch("ManagerPage.fxml", event, 520, 400);
     }
 }

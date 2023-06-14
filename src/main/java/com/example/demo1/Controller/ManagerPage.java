@@ -54,7 +54,7 @@ public class ManagerPage
     }
 
     @FXML
-    void pressedProfile(ActionEvent event) {
-
+    void pressedProfile(ActionEvent event) throws IOException {
+        Main.sceneSwitch("ManagerEdit.fxml", event, 520, 400);
     }
 }
