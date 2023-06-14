@@ -72,9 +72,9 @@ public class Main extends Application
     public static ArrayList<Manager> managers = new ArrayList<>();
     public static ArrayList<Feedback> feedbacks = new ArrayList<>();
     public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "091891929394", "admin@gmail.com",0, "Ahvaz");
-    public static Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212121", "manager@gmail.com", 100, "Ahvaz");
 
     private static void initiate() {
+        //PHASE 1
         Deputy deputy = new Deputy("name2", 2, 2022, 500);
         Employee employee = new Employee("name3", 3, 2010, 30);
         Inspector inspector = new Inspector("name4", 4, 2015, 25);
@@ -84,7 +84,6 @@ public class Main extends Application
         Institute institute = new Institute("institute1", 2001);
         Library library = new Library("library1", 2012);
         University university = new University("university1", 1999);
-
         members.add(mayor);
         members.add(deputy);
         members.add(employee);
@@ -106,9 +105,16 @@ public class Main extends Application
 //        libraries.add(library);
 //        universities.add(university);
 
+        //PHASE 2
         users.add(superAdmin);
+
+        Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212121", "manager@gmail.com", 100, "Ahvaz");
         users.add(defaultmanager);
         managers.add(defaultmanager);
+
+        Model.Airport.Employee employee1 = new Model.Airport.Employee(101, "first employee", "emp", "emp", "09182222222", "emp1@gmail.com", 20, "Ahvaz");
+        users.add(employee1);
+        employees.add(employee1);
     }
 
     public static void appendToFile(Exception e) {

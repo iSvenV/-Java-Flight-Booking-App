@@ -63,8 +63,8 @@ public class PassengerPage implements Initializable
     }
 
     @FXML
-    void pressedMail(ActionEvent event) {
-
+    void pressedMail(ActionEvent event) throws IOException {
+        Main.sceneSwitch("FeedbackSubmission.fxml", event, 520, 400);
     }
 
     @FXML

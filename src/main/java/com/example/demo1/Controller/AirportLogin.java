@@ -1,5 +1,6 @@
 package com.example.demo1.Controller;
 import Model.Airport.Employee;
+import Model.Airport.Manager;
 import Model.Airport.Passenger;
 import Model.Airport.User;
 import Model.Departments.Department;
@@ -79,8 +80,17 @@ public class AirportLogin implements Initializable
             return;
         }
 
+        for(Manager obj : Main.managers) {
+            if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
+                userIndex= Main.managers.indexOf(obj);
+                Main.sceneSwitch("ManagerPage.fxml", event, 520, 400);
+                return;
+            }
+        }
+
         for (Passenger obj : Main.passengers) {
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
+                FeedbackSubmission.authorRole = "passenger";
                 userIndex= Main.passengers.indexOf(obj);
                 Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
                 return;
@@ -88,6 +98,7 @@ public class AirportLogin implements Initializable
         }
 
         for (Employee obj : Main.employees) {
+            FeedbackSubmission.authorRole = "employee";
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 userIndex= Main.employees.indexOf(obj);
                 Main.sceneSwitch("EmployeePage.fxml", event, 520, 400);
