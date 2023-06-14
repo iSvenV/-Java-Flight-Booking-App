@@ -7,7 +7,7 @@ public class Feedback
     authorRole role;
 
     //Enum
-    private enum authorRole {
+    public enum authorRole {
         Passenger, Employee
     }
 

@@ -63,9 +63,9 @@ public class LoginPage implements Initializable
             pwdInput = passwordVisible.getText();
 
         if(userInput.equals(Main.admin.getUsername()) && pwdInput.equals(Main.admin.getPassword()))
-            Main.sceneSwitch("AdminPage.fxml", event, 520, 400);
+            Main.sceneSwitch("AdminPage.fxml", event, 520, 424);
         else if(userInput.equals(Main.mayor.getUsername()) && pwdInput.equals(Main.mayor.getPassword()))
-            Main.sceneSwitch("MayorPage.fxml", event, 520, 400);
+            Main.sceneSwitch("MayorPage.fxml", event, 520, 424);
         else
             loginChecker.setText("username or password is wrong!");
     }

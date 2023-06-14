@@ -1,4 +1,5 @@
 package com.example.demo1;
+import Model.Airport.Feedback;
 import Model.Airport.Manager;
 import Model.Airport.Passenger;
 import Model.Airport.User;
@@ -69,6 +70,7 @@ public class Main extends Application
     public static ArrayList<Passenger> passengers = new ArrayList<>();
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
     public static ArrayList<Manager> managers = new ArrayList<>();
+    public static ArrayList<Feedback> feedbacks = new ArrayList<>();
     public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "091891929394", "admin@gmail.com",0, "Ahvaz");
     public static Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212121", "manager@gmail.com", 100, "Ahvaz");
 
