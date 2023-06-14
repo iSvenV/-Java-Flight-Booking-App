@@ -26,7 +26,7 @@ public class EmployeePage implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int index = AirportLogin.userIndex;
-        greetLabel.setText(Main.passengers.get(index).getFullname()+"!");
+        greetLabel.setText(Main.employees.get(index).getFullname()+"!");
     }
 
     @FXML

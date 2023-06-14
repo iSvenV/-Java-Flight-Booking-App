@@ -98,8 +98,8 @@ public class AirportLogin implements Initializable
         }
 
         for (Employee obj : Main.employees) {
-            FeedbackSubmission.authorRole = "employee";
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
+                FeedbackSubmission.authorRole = "employee";
                 userIndex= Main.employees.indexOf(obj);
                 Main.sceneSwitch("EmployeePage.fxml", event, 520, 400);
                 return;
