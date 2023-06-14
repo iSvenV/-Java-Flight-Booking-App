@@ -1,8 +1,30 @@
 package Model.Airport;
-public class Employee extends Manager
+public class Employee extends User
 {
+    //Unique Attributes
+    private double salary;
+    private String  address;
+
     //Constructor
     public Employee(int id, String fullname, String username, String password, String phone, String email, double salary, String address) {
-        super(id, fullname, username, password, phone, email, salary, address);
+        super(id, fullname, username, password, phone, email);
+        this.salary = salary;
+        this.address = address;
+    }
+
+    //Getters
+    public double getSalary() {
+        return salary;
+    }
+    public String getAddress() {
+        return address;
+    }
+
+    //Setters
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -30,6 +30,8 @@ public class AdminMenu
     private Button passengersButton;
     @FXML
     private Button profileButton;
+    @FXML
+    private Button reportButton;
 
     @FXML
     void pressedAirplanes(ActionEvent event) {
@@ -68,6 +70,11 @@ public class AdminMenu
 
     @FXML
     void pressedProfile(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void pressedReport(ActionEvent event) {
 
     }
 
