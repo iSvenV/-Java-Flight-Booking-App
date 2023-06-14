@@ -70,8 +70,8 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedProfile(ActionEvent event) {
-
+    void pressedProfile(ActionEvent event) throws IOException {
+        Main.sceneSwitch("AdminEdit.fxml", event, 520, 400);
     }
 
     @FXML
