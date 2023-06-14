@@ -64,10 +64,13 @@ public class AdminEdit implements Initializable
 
     @FXML
     void pressedApply(ActionEvent event) {
+        appliedLabel.setVisible(false);
+        int generalIndex = 0;
+
         int id;
         try {
             id = Integer.parseInt(inputID.getText());
-            if(!Main.checkID(id)) {
+            if(!Main.checkID(id, generalIndex)) {
                 checker.setText("a user with this ID already exists!");
                 return;
             }
@@ -83,7 +86,7 @@ public class AdminEdit implements Initializable
         int phone = 0;
         try {
             phone = Integer.parseInt(inputPhone.getText());
-            if(!Main.checkPhone(phone+"")) {
+            if(!Main.checkPhone(phone+"", generalIndex)) {
                 checker.setText("a user with this phone number already exists!");
                 return;
             }
@@ -110,7 +113,7 @@ public class AdminEdit implements Initializable
         String username = null;
         if(Main.regexAlphaNum(inputUsername.getText())) {
             username = inputUsername.getText();
-            if (!Main.checkUsername(username)) {
+            if (!Main.checkUsername(username, generalIndex)) {
                 checker.setText("a user with this username already exists!");
                 return;
             }
@@ -123,7 +126,7 @@ public class AdminEdit implements Initializable
         String email = null;
         if(Main.regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
-            if(!Main.checkEmail(email)) {
+            if(!Main.checkEmail(email, generalIndex)) {
                 checker.setText("a user with this email alraedy exists!");
                 return;
             }

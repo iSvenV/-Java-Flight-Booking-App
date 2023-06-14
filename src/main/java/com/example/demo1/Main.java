@@ -71,7 +71,7 @@ public class Main extends Application
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
     public static ArrayList<Manager> managers = new ArrayList<>();
     public static ArrayList<Feedback> feedbacks = new ArrayList<>();
-    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "091891929394", "admin@gmail.com",0, "Ahvaz");
+    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "0918914", "admin@gmail.com",0, "Ahvaz");
 
     private static void initiate() {
         //PHASE 1
@@ -108,15 +108,16 @@ public class Main extends Application
         //PHASE 2
         users.add(superAdmin);
 
-        Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212121", "manager@gmail.com", 100, "Ahvaz");
+        Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212", "manager@gmail.com", 100, "Ahvaz");
         users.add(defaultmanager);
         managers.add(defaultmanager);
 
-        Model.Airport.Employee employee1 = new Model.Airport.Employee(101, "first employee", "emp", "emp", "09182222222", "emp1@gmail.com", 20, "Ahvaz");
+        Model.Airport.Employee employee1 = new Model.Airport.Employee(101, "first employee", "emp", "emp", "09182222", "emp1@gmail.com", 20, "Ahvaz");
         users.add(employee1);
         employees.add(employee1);
     }
 
+    //Error Logging
     public static void appendToFile(Exception e) {
         try {
             FileWriter New_File = new FileWriter("loggin.log", true);
@@ -129,6 +130,7 @@ public class Main extends Application
         }
     }
 
+    //Scene Switcher
     public static void sceneSwitch(String url, ActionEvent event, int v, int v1) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/example/demo1/View/"+url));
         Parent root = fxmlLoader.load();
@@ -142,38 +144,60 @@ public class Main extends Application
         primaryStage.show();
     }
 
-    public static boolean checkID(int id) {
+    //Methods to check if Signup/Editing inputs already exsits for other users
+    public static boolean checkID(int id, int index) {
         for(User obj : users)  {
+            int currentIndex = users.indexOf(obj);
+            if(!(index ==-1))
+                if(currentIndex == index)
+                    continue;
+
             if(id == obj.getId())
                 return false;
         }
         return true;
     }
 
-    public static boolean checkUsername(String username) {
+    public static boolean checkUsername(String username, int index) {
         for(User obj : users)  {
+            int currentIndex = users.indexOf(obj);
+            if(!(index ==-1))
+                if(currentIndex == index)
+                    continue;
+
             if(username.equals(obj.getUsername()))
                 return false;
         }
         return true;
     }
 
-    public static boolean checkPhone(String phone) {
+    public static boolean checkPhone(String phone, int index) {
         for(User obj : users)  {
+            int currentIndex = users.indexOf(obj);
+            if(!(index ==-1))
+                if(currentIndex == index)
+                    continue;
+
             if(phone.equals(obj.getPhone()))
                 return false;
         }
         return true;
     }
 
-    public static boolean checkEmail(String email) {
+    public static boolean checkEmail(String email, int index) {
         for(User obj : users)  {
+            int currentIndex = users.indexOf(obj);
+            if(!(index ==-1))
+                if(currentIndex == index)
+                    continue;
+
             if(email.equals(obj.getEmail()))
                 return false;
         }
         return true;
     }
 
+    //Regex Methods for controlling inputs
     public static boolean regexAlpha(String str) {
         Pattern p = Pattern.compile("^[a-zA-Z]*$");
         return p.matcher(str).find();

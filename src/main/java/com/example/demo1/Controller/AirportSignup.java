@@ -106,7 +106,7 @@ public class AirportSignup implements Initializable
         int id = 0;
         try {
             id = Integer.parseInt(inputID.getText());
-            if(!Main.checkID(id)) {
+            if(!Main.checkID(id, -1)) {
                 checker.setText("a user with this ID already exists!");
                 return;
             }
@@ -121,7 +121,7 @@ public class AirportSignup implements Initializable
         int phone = 0;
         try {
             phone = Integer.parseInt(inputPhone.getText());
-            if(!Main.checkPhone(phone+"")) {
+            if(!Main.checkPhone(phone+"", -1)) {
                 checker.setText("a user with this phone number already exists!");
                 return;
             }
@@ -146,7 +146,7 @@ public class AirportSignup implements Initializable
         String username = null;
         if(Main.regexAlphaNum(inputUsername.getText())) {
             username = inputUsername.getText();
-            if (!Main.checkUsername(username)) {
+            if (!Main.checkUsername(username, -1)) {
                 checker.setText("a user with this username already exists!");
                 return;
             }
@@ -159,7 +159,7 @@ public class AirportSignup implements Initializable
         String email = null;
         if(Main.regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
-            if(!Main.checkEmail(email)) {
+            if(!Main.checkEmail(email, -1)) {
                 checker.setText("a user with this email alraedy exists!");
                 return;
             }

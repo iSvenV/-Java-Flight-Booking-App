@@ -62,10 +62,14 @@ public class PassengerEdit implements Initializable
 
     @FXML
     void pressedApply(ActionEvent event) {
+        appliedLabel.setVisible(false);
+        int index = AirportLogin.userIndex;
+        int generalIndex = Main.users.indexOf(Main.passengers.get(index));
+
         int id;
         try {
             id = Integer.parseInt(inputID.getText());
-            if(!Main.checkID(id)) {
+            if(!Main.checkID(id, generalIndex)) {
                 checker.setText("a user with this ID already exists!");
                 return;
             }
@@ -81,7 +85,7 @@ public class PassengerEdit implements Initializable
         int phone = 0;
         try {
             phone = Integer.parseInt(inputPhone.getText());
-            if(!Main.checkPhone(phone+"")) {
+            if(!Main.checkPhone(phone+"", generalIndex)) {
                 checker.setText("a user with this phone number already exists!");
                 return;
             }
@@ -108,7 +112,7 @@ public class PassengerEdit implements Initializable
         String username = null;
         if(Main.regexAlphaNum(inputUsername.getText())) {
             username = inputUsername.getText();
-            if (!Main.checkUsername(username)) {
+            if (!Main.checkUsername(username, generalIndex)) {
                 checker.setText("a user with this username already exists!");
                 return;
             }
@@ -121,7 +125,7 @@ public class PassengerEdit implements Initializable
         String email = null;
         if(Main.regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
-            if(!Main.checkEmail(email)) {
+            if(!Main.checkEmail(email, generalIndex)) {
                 checker.setText("a user with this email alraedy exists!");
                 return;
             }
@@ -133,7 +137,6 @@ public class PassengerEdit implements Initializable
 
         String password = inputPassword.getText();
 
-        int index = AirportLogin.userIndex;
         Main.passengers.get(index).setId(id);
         Main.passengers.get(index).setFullname(firstname+" "+lastname);
         Main.passengers.get(index).setUsername(username);
