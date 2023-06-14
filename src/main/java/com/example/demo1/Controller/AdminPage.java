@@ -148,7 +148,7 @@ public class AdminPage implements Initializable
 
     @FXML
     void pressedLogout(ActionEvent event) throws IOException {
-        sceneSwitch("LoginPage.fxml", event);
+        Main.sceneSwitch("LoginPage.fxml", event, 520, 400);
     }
 
     @FXML
@@ -213,18 +213,5 @@ public class AdminPage implements Initializable
         updateLists(indexList, idList, nameList, roleList, yearList, baseSalaryList, paycheckList);
         editButton.setDisable(true);
         editTextfield.setDisable(true);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, 520, 424);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 }

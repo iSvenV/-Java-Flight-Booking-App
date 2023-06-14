@@ -1,4 +1,5 @@
 package com.example.demo1.Controller;
+import com.example.demo1.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,7 +73,7 @@ public class AdminMenu
     void pressedProfile(ActionEvent event) {
 
     }
-    
+
     @FXML
     void pressedReport(ActionEvent event) {
 
@@ -80,19 +81,6 @@ public class AdminMenu
 
     @FXML
     void pressedLogout(ActionEvent event) throws IOException {
-        sceneSwitch("AirportLogin.fxml", event, 520, 400);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event, int v, int v1) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, v, v1);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Main.sceneSwitch("AirportLogin.fxml", event, 520, 400);
     }
 }

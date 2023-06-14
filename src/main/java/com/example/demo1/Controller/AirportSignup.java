@@ -134,7 +134,7 @@ public class AirportSignup implements Initializable
         }
 
         String firstname, lastname;
-        if(regexAlpha(inputFirstname.getText()) && regexAlpha(inputLastname.getText())) {
+        if(Main.regexAlpha(inputFirstname.getText()) && Main.regexAlpha(inputLastname.getText())) {
             firstname=inputFirstname.getText();
             lastname=inputLastname.getText();
         }
@@ -144,7 +144,7 @@ public class AirportSignup implements Initializable
         }
 
         String username = null;
-        if(regexAlphaNum(inputUsername.getText())) {
+        if(Main.regexAlphaNum(inputUsername.getText())) {
             username = inputUsername.getText();
             if (!Main.checkUsername(username)) {
                 checker.setText("a user with this username already exists!");
@@ -157,7 +157,7 @@ public class AirportSignup implements Initializable
         }
 
         String email = null;
-        if(regexEmail(inputEmail.getText())) {
+        if(Main.regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
             if(!Main.checkEmail(email)) {
                 checker.setText("a user with this email alraedy exists!");
@@ -183,20 +183,5 @@ public class AirportSignup implements Initializable
 
         Stage addStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         addStage.close();
-    }
-
-    public static boolean regexAlpha(String str) {
-        Pattern p = Pattern.compile("^[a-zA-Z]*$");
-        return p.matcher(str).find();
-    }
-
-    public static boolean regexAlphaNum(String str) {
-        Pattern p = Pattern.compile("^[A-Za-z0-9]*$");
-        return p.matcher(str).find();
-    }
-
-    public static boolean regexEmail(String str) {
-        Pattern p = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", Pattern.CASE_INSENSITIVE);
-        return p.matcher(str).find();
     }
 }

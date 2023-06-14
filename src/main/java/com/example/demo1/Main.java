@@ -5,7 +5,9 @@ import Model.Airport.User;
 import Model.Departments.*;
 import Model.Persons.*;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class Main extends Application
 {
@@ -63,16 +66,17 @@ public class Main extends Application
 //    public static ArrayList<University> universities = new ArrayList<>();
 
     public static ArrayList<User> users = new ArrayList<>();
-    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "091891929394", "admin@gmail.com",0, "Ahvaz");
     public static ArrayList<Passenger> passengers = new ArrayList<>();
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
+    public static ArrayList<Manager> managers = new ArrayList<>();
+    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "091891929394", "admin@gmail.com",0, "Ahvaz");
+    public static Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212121", "manager@gmail.com", 100, "Ahvaz");
 
     private static void initiate() {
         Deputy deputy = new Deputy("name2", 2, 2022, 500);
         Employee employee = new Employee("name3", 3, 2010, 30);
         Inspector inspector = new Inspector("name4", 4, 2015, 25);
         Security security = new Security("name5", 5, 2020, 30, Security.Shifts.NIGHT);
-
         Airport airport = new Airport("airport1", 1990);
         Hospital hospital = new Hospital("hospital1", 2000);
         Institute institute = new Institute("institute1", 2001);
@@ -89,7 +93,6 @@ public class Main extends Application
 //        employees.add(employee);
 //        inspectors.add(inspector);
 //        securities.add(security);
-
         departments.add(airport);
         departments.add(hospital);
         departments.add(institute);
@@ -102,6 +105,8 @@ public class Main extends Application
 //        universities.add(university);
 
         users.add(superAdmin);
+        users.add(defaultmanager);
+        managers.add(defaultmanager);
     }
 
     public static void appendToFile(Exception e) {
@@ -114,6 +119,19 @@ public class Main extends Application
         catch (Exception ie) {
             throw new RuntimeException("Cannot write the Exception to file", ie);
         }
+    }
+
+    public static void sceneSwitch(String url, ActionEvent event, int v, int v1) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/example/demo1/View/"+url));
+        Parent root = fxmlLoader.load();
+        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        Scene scene = new Scene(root, v, v1);
+        primaryStage.getIcons().add(new Image("icon.png"));
+        primaryStage.setTitle("Munix");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static boolean checkID(int id) {
@@ -146,5 +164,20 @@ public class Main extends Application
                 return false;
         }
         return true;
+    }
+
+    public static boolean regexAlpha(String str) {
+        Pattern p = Pattern.compile("^[a-zA-Z]*$");
+        return p.matcher(str).find();
+    }
+
+    public static boolean regexAlphaNum(String str) {
+        Pattern p = Pattern.compile("^[A-Za-z0-9]*$");
+        return p.matcher(str).find();
+    }
+
+    public static boolean regexEmail(String str) {
+        Pattern p = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", Pattern.CASE_INSENSITIVE);
+        return p.matcher(str).find();
     }
 }

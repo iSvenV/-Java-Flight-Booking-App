@@ -75,14 +75,14 @@ public class AirportLogin implements Initializable
             pwdInput = passwordVisible.getText();
 
         if(userInput.equals(Main.superAdmin.getUsername()) && pwdInput.equals(Main.superAdmin.getPassword())) {
-            sceneSwitch("AdminMenu.fxml", event, 520, 400);
+            Main.sceneSwitch("AdminMenu.fxml", event, 520, 400);
             return;
         }
 
         for (Passenger obj : Main.passengers) {
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 userIndex= Main.passengers.indexOf(obj);
-                sceneSwitch("PassengerPage.fxml", event, 520, 400);
+                Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
                 return;
             }
         }
@@ -90,7 +90,7 @@ public class AirportLogin implements Initializable
         for (Employee obj : Main.employees) {
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 userIndex= Main.employees.indexOf(obj);
-                sceneSwitch("EmployeePage.fxml", event, 520, 400);
+                Main.sceneSwitch("EmployeePage.fxml", event, 520, 400);
                 return;
             }
         }
@@ -115,7 +115,7 @@ public class AirportLogin implements Initializable
 
     @FXML
     void pressedChange(ActionEvent event) throws IOException {
-        sceneSwitch("DepartmentSelection.fxml", event, 520, 400);
+        Main.sceneSwitch("DepartmentSelection.fxml", event, 520, 400);
     }
 
     @FXML
@@ -129,18 +129,5 @@ public class AirportLogin implements Initializable
         inputPassword.setText(passwordVisible.getText());
         inputPassword.setVisible(true);
         passwordVisible.setVisible(false);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event, int x, int y) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, x, y);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 }

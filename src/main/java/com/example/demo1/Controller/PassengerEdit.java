@@ -96,7 +96,7 @@ public class PassengerEdit implements Initializable
         }
 
         String firstname, lastname;
-        if(AirportSignup.regexAlpha(inputFirstname.getText()) && AirportSignup.regexAlpha(inputLastname.getText())) {
+        if(Main.regexAlpha(inputFirstname.getText()) && Main.regexAlpha(inputLastname.getText())) {
             firstname=inputFirstname.getText();
             lastname=inputLastname.getText();
         }
@@ -107,7 +107,7 @@ public class PassengerEdit implements Initializable
         }
 
         String username = null;
-        if(AirportSignup.regexAlphaNum(inputUsername.getText())) {
+        if(Main.regexAlphaNum(inputUsername.getText())) {
             username = inputUsername.getText();
             if (!Main.checkUsername(username)) {
                 checker.setText("a user with this username already exists!");
@@ -120,7 +120,7 @@ public class PassengerEdit implements Initializable
         }
 
         String email = null;
-        if(AirportSignup.regexEmail(inputEmail.getText())) {
+        if(Main.regexEmail(inputEmail.getText())) {
             email=inputEmail.getText();
             if(!Main.checkEmail(email)) {
                 checker.setText("a user with this email alraedy exists!");
@@ -148,19 +148,6 @@ public class PassengerEdit implements Initializable
 
     @FXML
     void pressedBack(ActionEvent event) throws IOException {
-        sceneSwitch("PassengerPage.fxml", event, 520, 400);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event, int v, int v1) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, v, v1);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
     }
 }

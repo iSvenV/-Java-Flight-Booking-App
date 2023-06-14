@@ -1,4 +1,5 @@
 package com.example.demo1.Controller;
+import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -47,9 +48,9 @@ public class DepartmentSelection implements Initializable
     @FXML
     void pressedEnter(ActionEvent event) throws IOException {
         if(selectedType.equals("municipality"))
-            sceneSwitch("LoginPage.fxml", event);
+            Main.sceneSwitch("LoginPage.fxml", event, 520, 400);
         else if(selectedType.equals("airport"))
-            sceneSwitch("AirportLogin.fxml", event);
+            Main.sceneSwitch("AirportLogin.fxml", event, 520, 400);
         else
             checker.setText(selectedType+" system in currently unavailable!");
     }
@@ -71,18 +72,5 @@ public class DepartmentSelection implements Initializable
             selectedType="library";
 
         buttonEnter.setDisable(false);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, 520, 400);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 }

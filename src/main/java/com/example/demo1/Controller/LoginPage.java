@@ -63,16 +63,16 @@ public class LoginPage implements Initializable
             pwdInput = passwordVisible.getText();
 
         if(userInput.equals(Main.admin.getUsername()) && pwdInput.equals(Main.admin.getPassword()))
-            sceneSwitch("AdminPage.fxml", event);
+            Main.sceneSwitch("AdminPage.fxml", event, 520, 400);
         else if(userInput.equals(Main.mayor.getUsername()) && pwdInput.equals(Main.mayor.getPassword()))
-            sceneSwitch("MayorPage.fxml", event);
+            Main.sceneSwitch("MayorPage.fxml", event, 520, 400);
         else
             loginChecker.setText("username or password is wrong!");
     }
 
     @FXML
     void pressedChange(ActionEvent event) throws IOException {
-        sceneSwitch("DepartmentSelection.fxml", event);
+        Main.sceneSwitch("DepartmentSelection.fxml", event, 520, 400);
     }
 
     @FXML
@@ -86,18 +86,5 @@ public class LoginPage implements Initializable
         inputPassword.setText(passwordVisible.getText());
         inputPassword.setVisible(true);
         passwordVisible.setVisible(false);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, 520, 424);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 }

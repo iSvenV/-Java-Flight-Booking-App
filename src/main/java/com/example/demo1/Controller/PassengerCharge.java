@@ -47,7 +47,7 @@ public class PassengerCharge implements Initializable
 
     @FXML
     void pressedBack(ActionEvent event) throws IOException {
-        sceneSwitch("PassengerPage.fxml", event, 520, 400);
+        Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
     }
 
     @FXML
@@ -77,18 +77,5 @@ public class PassengerCharge implements Initializable
         checker.setText("");
         chargedLabel.setVisible(true);
         Main.passengers.get(AirportLogin.userIndex).incrementWallet(value);
-    }
-
-    public void sceneSwitch(String url, ActionEvent event, int v, int v1) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/"+url));
-        Parent root = fxmlLoader.load();
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, v, v1);
-        primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setTitle("Munix");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 }
