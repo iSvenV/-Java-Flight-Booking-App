@@ -45,7 +45,7 @@ public class EmployeePage implements Initializable
     }
 
     @FXML
-    void pressedProfile(ActionEvent event) {
-
+    void pressedProfile(ActionEvent event) throws IOException {
+        Main.sceneSwitch("EmployeeEdit.fxml", event, 520, 400);
     }
 }
