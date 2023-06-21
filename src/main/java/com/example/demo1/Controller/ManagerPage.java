@@ -49,8 +49,9 @@ public class ManagerPage
     }
 
     @FXML
-    void pressedPassengers(ActionEvent event) {
-
+    void pressedPassengers(ActionEvent event) throws IOException {
+        PassengerEdit.editor = "manager";
+        Main.sceneSwitch("PassengerManagement.fxml", event, 520, 400);
     }
 
     @FXML

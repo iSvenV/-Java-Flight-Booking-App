@@ -54,6 +54,7 @@ public class PassengerPage implements Initializable
 
     @FXML
     void pressedProfile(ActionEvent event) throws IOException {
+        PassengerEdit.editor = "passenger";
         Main.sceneSwitch("PassengerEdit.fxml", event, 520, 400);
     }
 

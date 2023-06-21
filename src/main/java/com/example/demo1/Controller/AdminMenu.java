@@ -65,8 +65,9 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedPassengers(ActionEvent event) {
-
+    void pressedPassengers(ActionEvent event) throws IOException {
+        PassengerEdit.editor = "admin";
+        Main.sceneSwitch("PassengerManagement.fxml", event, 520, 400);
     }
 
     @FXML

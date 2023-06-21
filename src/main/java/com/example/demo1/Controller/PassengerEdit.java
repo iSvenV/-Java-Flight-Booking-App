@@ -42,10 +42,17 @@ public class PassengerEdit implements Initializable
     @FXML
     private TextField inputUsername;
 
+    public static String editor;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         appliedLabel.setVisible(false);
-        int index = AirportLogin.userIndex;
+
+        int index;
+        if(editor.equals("passenger"))
+            index = AirportLogin.userIndex;
+        else
+            index = PassengerManagement.selectedPassenger;
 
         String fullname[] = Main.passengers.get(index).getFullname().split(" ");
         String firstname = fullname[0];
@@ -63,7 +70,13 @@ public class PassengerEdit implements Initializable
     @FXML
     void pressedApply(ActionEvent event) {
         appliedLabel.setVisible(false);
-        int index = AirportLogin.userIndex;
+
+        int index;
+        if(editor.equals("passenger"))
+            index = AirportLogin.userIndex;
+        else
+            index = PassengerManagement.selectedPassenger;
+
         int generalIndex = Main.users.indexOf(Main.passengers.get(index));
 
         int id;
@@ -150,6 +163,9 @@ public class PassengerEdit implements Initializable
 
     @FXML
     void pressedBack(ActionEvent event) throws IOException {
-        Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
+        if(editor.equals("passenger"))
+            Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
+        else
+            Main.sceneSwitch("PassengerManagement.fxml", event, 520, 400);
     }
 }
