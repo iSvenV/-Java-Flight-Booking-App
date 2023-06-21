@@ -45,8 +45,8 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedFinancials(ActionEvent event) {
-
+    void pressedFinancials(ActionEvent event) throws IOException {
+        Main.sceneSwitch("Financials.fxml", event, 520, 400);
     }
 
     @FXML

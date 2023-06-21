@@ -8,6 +8,13 @@ public class User
     private String password;
     private String phone;
     private String email;
+    private Role role;
+    private double salary;
+
+    //Enum
+    public enum Role {
+        Manager, Employee, Passenger
+    }
 
     //Constructor
     public User(int id, String fullname, String username, String password, String phone, String email) {
@@ -38,6 +45,12 @@ public class User
     public String getEmail() {
         return email;
     }
+    public Role getRole() {
+        return role;
+    }
+    public double getSalary() {
+        return salary;
+    }
 
     //Setters
     public void setId(int id) {
@@ -58,4 +71,11 @@ public class User
     public void setEmail(String email) {
         this.email = email;
     }
+    public void setRole(Role role) {
+        this.role = role;
+    }
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
 }

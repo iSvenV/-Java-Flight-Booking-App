@@ -71,7 +71,7 @@ public class Main extends Application
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
     public static ArrayList<Manager> managers = new ArrayList<>();
     public static ArrayList<Feedback> feedbacks = new ArrayList<>();
-    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "0918914", "admin@gmail.com",0, "Ahvaz");
+    public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "0918914", "admin@gmail.com", "Ahvaz");
 
     private static void initiate() {
         //PHASE 1
@@ -108,11 +108,11 @@ public class Main extends Application
         //PHASE 2
         users.add(superAdmin);
 
-        Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212", "manager@gmail.com", 100, "Ahvaz");
+        Manager defaultmanager = new Manager(1, "DEFAULT MANAGER", "manager", "manager", "09181212", "manager@gmail.com", "Ahvaz");
         users.add(defaultmanager);
         managers.add(defaultmanager);
 
-        Model.Airport.Employee employee1 = new Model.Airport.Employee(101, "first employee", "emp", "emp", "09182222", "emp1@gmail.com", 20, "Ahvaz");
+        Model.Airport.Employee employee1 = new Model.Airport.Employee(101, "first employee", "emp", "emp", "09182222", "emp1@gmail.com", "Ahvaz");
         users.add(employee1);
         employees.add(employee1);
 

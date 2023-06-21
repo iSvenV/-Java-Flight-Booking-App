@@ -7,6 +7,7 @@ public class Passenger extends User
     //Constructor
     public Passenger(int id, String fullname, String username, String password, String phone, String email) {
         super(id, fullname, username, password, phone, email);
+        this.setRole(Role.Passenger);
     }
 
     //Getter-Setter

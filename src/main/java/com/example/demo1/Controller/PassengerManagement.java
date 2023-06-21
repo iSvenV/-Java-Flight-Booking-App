@@ -14,7 +14,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +33,8 @@ public class PassengerManagement implements Initializable
     @FXML
     private ListView<String> nameList;
     @FXML
+    private ListView<String> numList;
+    @FXML
     private ListView<String> usernameList;
     @FXML
     private Button infoButton;
@@ -45,15 +46,15 @@ public class PassengerManagement implements Initializable
         editButton.setDisable(true);
         deleteButton.setDisable(true);
         infoButton.setDisable(true);
-        updateLists(idList, nameList, usernameList, emailList);
+        updateLists(numList, idList, nameList, usernameList, emailList);
 
-        idList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        numList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 deleteButton.setDisable(false);
                 editButton.setDisable(false);
                 infoButton.setDisable(false);
-                selectedPassenger = idList.getSelectionModel().getSelectedIndex();
+                selectedPassenger = numList.getSelectionModel().getSelectedIndex();
             }
         });
     }
@@ -68,9 +69,9 @@ public class PassengerManagement implements Initializable
 
     @FXML
     void pressedDelete(ActionEvent event) {
-        int index = idList.getSelectionModel().getSelectedIndex();
-        Main.feedbacks.remove(index);
-        updateLists(idList, nameList, usernameList, emailList);
+        int index = numList.getSelectionModel().getSelectedIndex();
+        Main.passengers.remove(index);
+        updateLists(numList, idList, nameList, usernameList, emailList);
         deleteButton.setDisable(true);
         editButton.setDisable(true);
         infoButton.setDisable(true);
@@ -95,15 +96,17 @@ public class PassengerManagement implements Initializable
         addStage.show();
     }
 
-    public static void updateLists(ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
+    public static void updateLists(ListView<String> numList, ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
         try {
+            numList.getItems().clear();
             idList.getItems().clear();
             nameList.getItems().clear();
             usernameList.getItems().clear();
             emailList.getItems().clear();
 
             for (Passenger obj : Main.passengers) {
-                idList.getItems().add(Integer.toString(Main.passengers.indexOf(obj) + 1));
+                numList.getItems().add(Integer.toString(Main.passengers.indexOf(obj) + 1));
+                idList.getItems().add(obj.getId()+"");
                 nameList.getItems().add(obj.getFullname());
                 usernameList.getItems().add(obj.getUsername());
                 emailList.getItems().add(obj.getEmail());
