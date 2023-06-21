@@ -115,6 +115,10 @@ public class Main extends Application
         Model.Airport.Employee employee1 = new Model.Airport.Employee(101, "first employee", "emp", "emp", "09182222", "emp1@gmail.com", 20, "Ahvaz");
         users.add(employee1);
         employees.add(employee1);
+
+        Passenger passenger1 = new Passenger(201, "first passenger", "pas", "pas", "09189999", "pas1@gmail.com");
+        users.add(passenger1);
+        passengers.add(passenger1);
     }
 
     //Error Logging

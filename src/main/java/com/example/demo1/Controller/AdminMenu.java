@@ -55,8 +55,8 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedMail(ActionEvent event) {
-
+    void pressedMail(ActionEvent event) throws IOException {
+        Main.sceneSwitch("FeedbacksPage.fxml", event, 520, 400);
     }
 
     @FXML

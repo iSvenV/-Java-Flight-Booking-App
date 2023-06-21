@@ -65,6 +65,7 @@ public class AirportLogin implements Initializable
         });
     }
 
+    public static String userRole;
     public static int userIndex;
     @FXML
     void pressedEnter(ActionEvent event) throws IOException {
@@ -76,6 +77,7 @@ public class AirportLogin implements Initializable
             pwdInput = passwordVisible.getText();
 
         if(userInput.equals(Main.superAdmin.getUsername()) && pwdInput.equals(Main.superAdmin.getPassword())) {
+            userRole = "admin";
             Main.sceneSwitch("AdminMenu.fxml", event, 520, 400);
             return;
         }
@@ -83,6 +85,7 @@ public class AirportLogin implements Initializable
         for(Manager obj : Main.managers) {
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 userIndex= Main.managers.indexOf(obj);
+                userRole = "manager";
                 Main.sceneSwitch("ManagerPage.fxml", event, 520, 400);
                 return;
             }
@@ -92,6 +95,7 @@ public class AirportLogin implements Initializable
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 FeedbackSubmission.authorRole = "passenger";
                 userIndex= Main.passengers.indexOf(obj);
+                userRole = "passenger";
                 Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
                 return;
             }
@@ -101,6 +105,7 @@ public class AirportLogin implements Initializable
             if(userInput.equals(obj.getUsername()) && pwdInput.equals(obj.getPassword())) {
                 FeedbackSubmission.authorRole = "employee";
                 userIndex= Main.employees.indexOf(obj);
+                userRole = "employee";
                 Main. sceneSwitch("EmployeePage.fxml", event, 520, 400);
                 return;
             }

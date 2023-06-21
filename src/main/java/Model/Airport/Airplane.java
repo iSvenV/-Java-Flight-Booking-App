@@ -5,13 +5,15 @@ public class Airplane
     //Attributes
     private int id;
     private int seats;
-    private ArrayList<Flight> flights = new ArrayList<>();
+    private ArrayList<Flight> flights;
+    private boolean[] seatsAvaliablity;
 
     //Constructor
-    public Airplane(int id, int seats, ArrayList<Flight> flights) {
+    public Airplane(int id, int seats) {
         this.id = id;
         this.seats = seats;
-        this.flights = flights;
+        this.flights = new ArrayList<>();
+        this.seatsAvaliablity = new boolean[seats];
     }
 
     //Getters
@@ -24,6 +26,9 @@ public class Airplane
     public ArrayList<Flight> getFlights() {
         return flights;
     }
+    public boolean[] getSeatsAvaliablity() {
+        return seatsAvaliablity;
+    }
 
     //Setters
     public void setId(int id) {
@@ -34,5 +39,8 @@ public class Airplane
     }
     public void setFlights(ArrayList<Flight> flights) {
         this.flights = flights;
+    }
+    public void setSeatsAvaliablity(boolean[] seatsAvaliablity) {
+        this.seatsAvaliablity = seatsAvaliablity;
     }
 }

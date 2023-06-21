@@ -11,7 +11,7 @@ public class Flight
     private String date;
     private int hour;
     private int soldTickets;
-    private ArrayList<Passenger> passengers = new ArrayList<>();
+    private ArrayList<Passenger> passengers;
     private int flightLenght;
     private Status status;
 
@@ -24,7 +24,7 @@ public class Flight
     }
 
     //Constructor
-    public Flight(int id, Airplane plane, Ticket ticket, String from, String to, String date, int hour, int soldTickets, ArrayList<Passenger> passengers, int flightLenght, Status status) {
+    public Flight(int id, Airplane plane, Ticket ticket, String from, String to, String date, int hour, int soldTickets, int flightLenght, Status status) {
         this.id = id;
         this.plane = plane;
         this.ticket = ticket;
@@ -33,7 +33,7 @@ public class Flight
         this.date = date;
         this.hour = hour;
         this.soldTickets = soldTickets;
-        this.passengers = passengers;
+        this.passengers = new ArrayList<>();
         this.flightLenght = flightLenght;
         this.status = status;
     }

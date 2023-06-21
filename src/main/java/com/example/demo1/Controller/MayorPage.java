@@ -93,12 +93,6 @@ public class MayorPage implements Initializable
 
     public static void updateLists(ListView<String> indexList, ListView<String> nameList, ListView<String> typeList, ListView<String> yearList) {
         try {
-//            Main.departments.addAll(Main.airports);
-//            Main.departments.addAll(Main.hospitals);
-//            Main.departments.addAll(Main.libraries);
-//            Main.departments.addAll(Main.institutes);
-//            Main.departments.addAll(Main.universities);
-
             indexList.getItems().clear();
             nameList.getItems().clear();
             typeList.getItems().clear();

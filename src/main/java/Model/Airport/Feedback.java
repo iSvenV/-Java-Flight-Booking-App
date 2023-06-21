@@ -4,7 +4,7 @@ public class Feedback
     //Attributes
     private String text;
     private String author;
-    authorRole role;
+    private authorRole role;
 
     //Enum
     public enum authorRole {
