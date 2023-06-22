@@ -60,8 +60,8 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedManagers(ActionEvent event) {
-
+    void pressedManagers(ActionEvent event) throws IOException {
+        Main.sceneSwitch("ManagerManagement.fxml", event, 520, 400);
     }
 
     @FXML

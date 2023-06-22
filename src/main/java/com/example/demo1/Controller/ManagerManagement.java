@@ -41,6 +41,8 @@ public class ManagerManagement implements Initializable
     private ListView<String> numList;
     @FXML
     private ListView<String> usernameList;
+    @FXML
+    private Button refreshButton;
 
     public static int selectedManager;
 
@@ -64,7 +66,18 @@ public class ManagerManagement implements Initializable
 
     @FXML
     void pressedAdd(ActionEvent event) throws IOException {
-        Main.sceneSwitch("ManagerAdd.fxml", event, 520, 400);
+        ManagerAdd.creatingUserType = "Manager:";
+
+        Stage addStage = new Stage();
+        addStage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/ManagerAdd.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 374, 455);
+        addStage.getIcons().add(new Image("icon.png"));
+        addStage.setTitle("Munix");
+        addStage.setResizable(false);
+        addStage.setScene(scene);
+        addStage.show();
     }
 
     @FXML
@@ -79,6 +92,11 @@ public class ManagerManagement implements Initializable
         addStage.setResizable(false);
         addStage.setScene(scene);
         addStage.show();
+    }
+
+    @FXML
+    void pressedRefresh(ActionEvent event) {
+        updateLists(numList, idList, nameList, usernameList, emailList);
     }
 
     @FXML

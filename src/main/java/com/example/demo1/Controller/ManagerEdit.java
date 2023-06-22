@@ -1,5 +1,6 @@
 package com.example.demo1.Controller;
 import Model.Airport.Passenger;
+import Model.Departments.Airport;
 import com.example.demo1.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +48,12 @@ public class ManagerEdit implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         appliedLabel.setVisible(false);
-        int index = AirportLogin.userIndex;
+
+        int index;
+        if(AirportLogin.userRole.equals("manager"))
+            index = AirportLogin.userIndex;
+        else
+            index = ManagerManagement.selectedManager;
 
         String fullname[] = Main.managers.get(index).getFullname().split(" ");
         String firstname = fullname[0];
@@ -66,7 +72,13 @@ public class ManagerEdit implements Initializable
     @FXML
     void pressedApply(ActionEvent event) {
         appliedLabel.setVisible(false);
-        int index = AirportLogin.userIndex;
+
+        int index;
+        if(AirportLogin.userRole.equals("manager"))
+            index = AirportLogin.userIndex;
+        else
+            index = ManagerManagement.selectedManager;
+
         int generalIndex = Main.users.indexOf(Main.managers.get(index));
 
         int id;
@@ -153,6 +165,9 @@ public class ManagerEdit implements Initializable
 
     @FXML
     void pressedBack(ActionEvent event) throws IOException {
-        Main.sceneSwitch("ManagerPage.fxml", event, 520, 400);
+        if(AirportLogin.userRole.equals("manager"))
+            Main.sceneSwitch("ManagerPage.fxml", event, 520, 400);
+        else
+            Main.sceneSwitch("ManagerManagement.fxml", event, 520, 400);
     }
 }

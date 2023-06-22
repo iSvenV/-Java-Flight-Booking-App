@@ -27,6 +27,8 @@ public class PassengerInfo implements Initializable
     private Label phone;
     @FXML
     private Label username;
+    @FXML
+    private Label balance;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -37,6 +39,7 @@ public class PassengerInfo implements Initializable
         password.setText(Main.passengers.get(index).getPassword());
         phone.setText(Main.passengers.get(index).getPhone());
         email.setText(Main.passengers.get(index).getEmail());
+        balance.setText(Main.passengers.get(index).getWallet()+"$");
     }
 
     @FXML
