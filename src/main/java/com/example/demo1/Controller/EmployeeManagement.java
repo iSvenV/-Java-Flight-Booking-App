@@ -1,5 +1,6 @@
 package com.example.demo1.Controller;
-import Model.Airport.Manager;
+import Model.Airport.Employee;
+import Model.Airport.Passenger;
 import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -19,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ManagerManagement implements Initializable
+public class EmployeeManagement implements Initializable
 {
     @FXML
     private Button addButton;
@@ -40,11 +41,11 @@ public class ManagerManagement implements Initializable
     @FXML
     private ListView<String> numList;
     @FXML
-    private ListView<String> usernameList;
-    @FXML
     private Button refreshButton;
+    @FXML
+    private ListView<String> usernameList;
 
-    public static int selectedManager;
+    public static int selectedEmployee;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,14 +60,14 @@ public class ManagerManagement implements Initializable
                 deleteButton.setDisable(false);
                 editButton.setDisable(false);
                 infoButton.setDisable(false);
-                selectedManager = numList.getSelectionModel().getSelectedIndex();
+                selectedEmployee = numList.getSelectionModel().getSelectedIndex();
             }
         });
     }
 
     @FXML
     void pressedAdd(ActionEvent event) throws IOException {
-        ManagerAdd.creatingUserType = "Manager:";
+        ManagerAdd.creatingUserType = "Employee:";
 
         Stage addStage = new Stage();
         addStage.initModality(Modality.APPLICATION_MODAL);
@@ -82,7 +83,7 @@ public class ManagerManagement implements Initializable
 
     @FXML
     void pressedInfo(ActionEvent event) throws IOException {
-        ManagerInfo.userType = "manager";
+        ManagerInfo.userType = "employee";
         Stage addStage = new Stage();
         addStage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/ManagerInfo.fxml"));
@@ -96,14 +97,14 @@ public class ManagerManagement implements Initializable
     }
 
     @FXML
-    void pressedRefresh(ActionEvent event) {
-        updateLists(numList, idList, nameList, usernameList, emailList);
+    void pressedEdit(ActionEvent event) throws IOException {
+        Main.sceneSwitch("EmployeeEdit.fxml", event, 520, 400);
     }
 
     @FXML
     void pressedDelete(ActionEvent event) {
         int index = numList.getSelectionModel().getSelectedIndex();
-        Main.managers.remove(index);
+        Main.employees.remove(index);
         updateLists(numList, idList, nameList, usernameList, emailList);
         deleteButton.setDisable(true);
         editButton.setDisable(true);
@@ -111,13 +112,16 @@ public class ManagerManagement implements Initializable
     }
 
     @FXML
-    void pressedEdit(ActionEvent event) throws IOException {
-        Main.sceneSwitch("ManagerEdit.fxml", event, 520, 400);
+    void pressedBack(ActionEvent event) throws IOException {
+        if(AirportLogin.userRole.equals("admin"))
+            Main.sceneSwitch("AdminMenu.fxml", event, 520, 400);
+        else
+            Main.sceneSwitch("ManagerPage.fxml", event, 520, 400);
     }
 
     @FXML
-    void pressedBack(ActionEvent event) throws IOException {
-        Main.sceneSwitch("AdminMenu.fxml", event, 520, 400);
+    void pressedRefresh(ActionEvent event) {
+        updateLists(numList, idList, nameList, usernameList, emailList);
     }
 
     public static void updateLists(ListView<String> numList, ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
@@ -128,8 +132,8 @@ public class ManagerManagement implements Initializable
             usernameList.getItems().clear();
             emailList.getItems().clear();
 
-            for (Manager obj : Main.managers) {
-                numList.getItems().add(Integer.toString(Main.managers.indexOf(obj) + 1));
+            for (Employee obj : Main.employees) {
+                numList.getItems().add(Integer.toString(Main.employees.indexOf(obj) + 1));
                 idList.getItems().add(obj.getId()+"");
                 nameList.getItems().add(obj.getFullname());
                 usernameList.getItems().add(obj.getUsername());

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: #33adff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.EmployeeManagement">
+    <children>
+        <AnchorPane layoutX="19.0" layoutY="18.0" prefHeight="363.0" prefWidth="481.0" style="-fx-background-color: white; -fx-border-color: black;">
+            <children>
+                <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="201.0" text="Employees" textFill="#33adff">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="backButton" layoutX="26.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedBack" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="BACK" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="deleteButton" layoutX="257.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedDelete" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="DELETE" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="numList" layoutX="21.0" layoutY="78.0" prefHeight="220.0" prefWidth="29.0" style="-fx-border-color: black;" />
+                <ListView fx:id="nameList" layoutX="94.0" layoutY="78.0" prefHeight="220.0" prefWidth="132.0" style="-fx-border-color: black;" />
+                <ListView fx:id="usernameList" layoutX="226.0" layoutY="78.0" prefHeight="220.0" prefWidth="109.0" style="-fx-border-color: black;" />
+                <Button fx:id="editButton" layoutX="328.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedEdit" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="EDIT" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="emailList" layoutX="335.0" layoutY="78.0" prefHeight="220.0" prefWidth="132.0" style="-fx-border-color: black;" />
+                <Label alignment="CENTER" layoutX="21.0" layoutY="57.0" prefHeight="21.0" prefWidth="29.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Num" />
+                <Label alignment="CENTER" layoutX="94.0" layoutY="57.0" prefHeight="21.0" prefWidth="132.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Name" />
+                <Label alignment="CENTER" layoutX="226.0" layoutY="57.0" prefHeight="21.0" prefWidth="109.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Username" />
+                <Label alignment="CENTER" layoutX="335.0" layoutY="57.0" prefHeight="21.0" prefWidth="132.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Email" />
+                <Button fx:id="infoButton" layoutX="186.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedInfo" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="INFO" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="idList" layoutX="49.0" layoutY="78.0" prefHeight="220.0" prefWidth="45.0" style="-fx-border-color: black;" />
+                <Label alignment="CENTER" layoutX="49.0" layoutY="57.0" prefHeight="21.0" prefWidth="45.0" style="-fx-background-color: gray; -fx-border-color: black;" text="ID" />
+                <Button fx:id="addButton" layoutX="400.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedAdd" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="ADD" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="refreshButton" layoutX="434.0" layoutY="16.0" mnemonicParsing="false" onAction="#pressedRefresh" prefHeight="22.0" prefWidth="29.0" style="-fx-background-color: #33adff;" />
+                <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="438.0" layoutY="18.0">
+                    <image>
+                        <Image url="@../../../../refresh.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

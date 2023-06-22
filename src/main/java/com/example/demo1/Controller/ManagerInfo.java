@@ -31,17 +31,32 @@ public class ManagerInfo implements Initializable
     @FXML
     private Label username;
 
+    public static String userType;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int index = ManagerManagement.selectedManager;
-        id.setText(Main.managers.get(index).getId()+"");
-        name.setText(Main.managers.get(index).getFullname());
-        username.setText(Main.managers.get(index).getUsername());
-        password.setText(Main.managers.get(index).getPassword());
-        phone.setText(Main.managers.get(index).getPhone());
-        email.setText(Main.managers.get(index).getEmail());
-        address.setText(Main.managers.get(index).getAddress());
-        salary.setText(Main.managers.get(index).getSalary()+"$");
+        if(userType.equals("manager")) {
+            int index = ManagerManagement.selectedManager;
+            id.setText(Main.managers.get(index).getId()+"");
+            name.setText(Main.managers.get(index).getFullname());
+            username.setText(Main.managers.get(index).getUsername());
+            password.setText(Main.managers.get(index).getPassword());
+            phone.setText(Main.managers.get(index).getPhone());
+            email.setText(Main.managers.get(index).getEmail());
+            address.setText(Main.managers.get(index).getAddress());
+            salary.setText(Main.managers.get(index).getSalary()+"$");
+        }
+        else {
+            int index = EmployeeManagement.selectedEmployee;
+            id.setText(Main.employees.get(index).getId()+"");
+            name.setText(Main.employees.get(index).getFullname());
+            username.setText(Main.employees.get(index).getUsername());
+            password.setText(Main.employees.get(index).getPassword());
+            phone.setText(Main.employees.get(index).getPhone());
+            email.setText(Main.employees.get(index).getEmail());
+            address.setText(Main.employees.get(index).getAddress());
+            salary.setText(Main.employees.get(index).getSalary()+"$");
+        }
     }
 
     @FXML

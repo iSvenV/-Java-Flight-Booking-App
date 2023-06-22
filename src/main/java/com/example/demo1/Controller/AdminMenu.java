@@ -40,8 +40,8 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedEmployees(ActionEvent event) {
-
+    void pressedEmployees(ActionEvent event) throws IOException {
+        Main.sceneSwitch("EmployeeManagement.fxml", event, 520, 400);
     }
 
     @FXML
