@@ -1,4 +1,4 @@
-package com.example.demo1.Controller;
+package com.example.demo1.Controller.Municipality;
 import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -63,9 +63,9 @@ public class LoginPage implements Initializable
             pwdInput = passwordVisible.getText();
 
         if(userInput.equals(Main.admin.getUsername()) && pwdInput.equals(Main.admin.getPassword()))
-            Main.sceneSwitch("AdminPage.fxml", event, 520, 424);
+            Main.sceneSwitch("Municipality/AdminPage.fxml", event, 520, 424);
         else if(userInput.equals(Main.mayor.getUsername()) && pwdInput.equals(Main.mayor.getPassword()))
-            Main.sceneSwitch("MayorPage.fxml", event, 520, 424);
+            Main.sceneSwitch("Municipality/MayorPage.fxml", event, 520, 424);
         else
             loginChecker.setText("username or password is wrong!");
     }

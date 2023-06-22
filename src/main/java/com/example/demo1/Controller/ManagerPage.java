@@ -9,8 +9,6 @@ import java.io.IOException;
 public class ManagerPage
 {
     @FXML
-    private Button airplanesButton;
-    @FXML
     private Button employeesButton;
     @FXML
     private Button flightsButton;
@@ -22,11 +20,6 @@ public class ManagerPage
     private Button passengersButton;
     @FXML
     private Button profileButton;
-
-    @FXML
-    void pressedAirplanes(ActionEvent event) {
-
-    }
 
     @FXML
     void pressedEmployees(ActionEvent event) throws IOException {

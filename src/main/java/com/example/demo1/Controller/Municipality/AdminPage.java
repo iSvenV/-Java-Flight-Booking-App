@@ -1,4 +1,4 @@
-package com.example.demo1.Controller;
+package com.example.demo1.Controller.Municipality;
 import Model.Persons.Municipality;
 import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
@@ -148,7 +148,7 @@ public class AdminPage implements Initializable
 
     @FXML
     void pressedLogout(ActionEvent event) throws IOException {
-        Main.sceneSwitch("LoginPage.fxml", event, 520, 400);
+        Main.sceneSwitch("Municipality/LoginPage.fxml", event, 520, 400);
     }
 
     @FXML
@@ -161,7 +161,7 @@ public class AdminPage implements Initializable
         //sceneSwitch("AdminAddPage.fxml", event, 300, 400);
         Stage addStage = new Stage();
         addStage.initModality(Modality.APPLICATION_MODAL);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/AdminAddPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/Municipality/AdminAddPage.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 300, 515);
         addStage.getIcons().add(new Image("icon.png"));

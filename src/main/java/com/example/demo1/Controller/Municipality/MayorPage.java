@@ -1,4 +1,4 @@
-package com.example.demo1.Controller;
+package com.example.demo1.Controller.Municipality;
 import Model.Departments.Department;
 import Model.Departments.Type;
 import Model.Persons.Municipality;
@@ -109,7 +109,7 @@ public class MayorPage implements Initializable
 
     @FXML
     void pressedLogout(ActionEvent event) throws IOException {
-        Main.sceneSwitch("LoginPage.fxml", event, 520, 400);
+        Main.sceneSwitch("Municipality/LoginPage.fxml", event, 520, 400);
     }
 
     @FXML
@@ -117,7 +117,7 @@ public class MayorPage implements Initializable
         //sceneSwitch("MayorAddPage.fxml", event, 300, 400);
         Stage addStage = new Stage();
         addStage.initModality(Modality.APPLICATION_MODAL);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/MayorAddPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/Municipality/MayorAddPage.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 300, 400);
         addStage.getIcons().add(new Image("icon.png"));

@@ -48,7 +48,7 @@ public class DepartmentSelection implements Initializable
     @FXML
     void pressedEnter(ActionEvent event) throws IOException {
         if(selectedType.equals("municipality"))
-            Main.sceneSwitch("LoginPage.fxml", event, 520, 400);
+            Main.sceneSwitch("Municipality/LoginPage.fxml", event, 520, 400);
         else if(selectedType.equals("airport"))
             Main.sceneSwitch("AirportLogin.fxml", event, 520, 400);
         else

@@ -14,8 +14,6 @@ import java.io.IOException;
 public class AdminMenu
 {
     @FXML
-    private Button airplanesButton;
-    @FXML
     private Button employeesButton;
     @FXML
     private Button financialsButton;
@@ -33,11 +31,6 @@ public class AdminMenu
     private Button profileButton;
     @FXML
     private Button reportButton;
-
-    @FXML
-    void pressedAirplanes(ActionEvent event) {
-
-    }
 
     @FXML
     void pressedEmployees(ActionEvent event) throws IOException {

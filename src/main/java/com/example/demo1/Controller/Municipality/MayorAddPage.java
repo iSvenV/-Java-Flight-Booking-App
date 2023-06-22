@@ -1,4 +1,4 @@
-package com.example.demo1.Controller;
+package com.example.demo1.Controller.Municipality;
 import Model.Departments.*;
 import Model.Persons.Admin;
 import Model.Persons.Mayor;
