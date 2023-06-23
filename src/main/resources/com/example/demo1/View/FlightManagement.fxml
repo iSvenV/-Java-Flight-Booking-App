@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="694.0" style="-fx-background-color: #33adff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Controller.FlightManagement">
+    <children>
+        <AnchorPane layoutX="19.0" layoutY="18.0" prefHeight="363.0" prefWidth="656.0" style="-fx-background-color: white; -fx-border-color: black;">
+            <children>
+                <Label layoutX="21.0" layoutY="14.0" prefHeight="30.0" prefWidth="307.0" text="Flights of Airplane No." textFill="#33adff">
+                    <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="backButton" layoutX="26.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedBack" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="BACK" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="deleteButton" layoutX="411.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedDelete" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="DELETE" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="numList" layoutX="21.0" layoutY="78.0" prefHeight="220.0" prefWidth="39.0" style="-fx-border-color: black;" />
+                <ListView fx:id="fromList" layoutX="113.0" layoutY="78.0" prefHeight="220.0" prefWidth="86.0" style="-fx-border-color: black;" />
+                <ListView fx:id="toList" layoutX="199.0" layoutY="78.0" prefHeight="220.0" prefWidth="86.0" style="-fx-border-color: black;" />
+                <Button fx:id="editButton" layoutX="482.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedEdit" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="EDIT" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Label alignment="CENTER" layoutX="21.0" layoutY="57.0" prefHeight="21.0" prefWidth="39.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Num" />
+                <Label alignment="CENTER" layoutX="113.0" layoutY="57.0" prefHeight="21.0" prefWidth="86.0" style="-fx-background-color: gray; -fx-border-color: black;" text="From" />
+                <Label alignment="CENTER" layoutX="199.0" layoutY="57.0" prefHeight="21.0" prefWidth="86.0" style="-fx-background-color: gray; -fx-border-color: black;" text="To" />
+                <Button fx:id="passengersButton" layoutX="302.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedPassengers" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #33adff;" text="PASSENGERS" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="idList" layoutX="60.0" layoutY="78.0" prefHeight="220.0" prefWidth="53.0" style="-fx-border-color: black;" />
+                <Label alignment="CENTER" layoutX="60.0" layoutY="57.0" prefHeight="21.0" prefWidth="53.0" style="-fx-background-color: gray; -fx-border-color: black;" text="ID" />
+                <Button fx:id="addButton" layoutX="554.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedAdd" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #33adff;" text="ADD" textFill="WHITE">
+                    <font>
+                        <Font name="Verdana Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="refreshButton" layoutX="600.0" layoutY="16.0" mnemonicParsing="false" onAction="#pressedRefresh" prefHeight="22.0" prefWidth="29.0" style="-fx-background-color: #33adff;" />
+                <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="604.0" layoutY="18.0">
+                    <image>
+                        <Image url="@../../../../refresh.jpg" />
+                    </image>
+                </ImageView>
+            <Label fx:id="titleLabel" layoutX="334.0" layoutY="14.0" prefHeight="30.0" prefWidth="191.0" textFill="#33adff">
+               <font>
+                  <Font name="Verdana Bold" size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="dateList" layoutX="362.0" layoutY="78.0" prefHeight="220.0" prefWidth="77.0" style="-fx-border-color: black;" />
+            <ListView fx:id="timeList" layoutX="439.0" layoutY="78.0" prefHeight="220.0" prefWidth="61.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="362.0" layoutY="57.0" prefHeight="21.0" prefWidth="77.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Date" />
+            <Label alignment="CENTER" layoutX="439.0" layoutY="57.0" prefHeight="21.0" prefWidth="61.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Time" />
+            <ListView fx:id="lengthList" layoutX="500.0" layoutY="78.0" prefHeight="220.0" prefWidth="47.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="500.0" layoutY="57.0" prefHeight="21.0" prefWidth="47.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Length" />
+            <ListView fx:id="soldticketsList" layoutX="547.0" layoutY="78.0" prefHeight="220.0" prefWidth="86.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="547.0" layoutY="57.0" prefHeight="21.0" prefWidth="86.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Sold Tickets" />
+            <ListView fx:id="statusList" layoutX="285.0" layoutY="78.0" prefHeight="220.0" prefWidth="77.0" style="-fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="285.0" layoutY="57.0" prefHeight="21.0" prefWidth="77.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Status" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

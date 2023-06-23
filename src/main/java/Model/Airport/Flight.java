@@ -8,8 +8,13 @@ public class Flight
     private Ticket ticket;
     private String from;
     private String to;
-    private String date;
+
+    private int day;
+    private int month;
+
+    private int minute;
     private int hour;
+
     private int soldTickets;
     private ArrayList<Passenger> passengers;
     private int flightLenght;
@@ -24,18 +29,19 @@ public class Flight
     }
 
     //Constructor
-    public Flight(int id, Airplane plane, Ticket ticket, String from, String to, String date, int hour, int soldTickets, int flightLenght, Status status) {
+    public Flight(int id, Airplane plane, String from, String to, int day, int month, int minute, int hour, int flightLenght, Status status) {
         this.id = id;
         this.plane = plane;
-        this.ticket = ticket;
         this.from = from;
         this.to = to;
-        this.date = date;
-        this.hour = hour;
-        this.soldTickets = soldTickets;
         this.passengers = new ArrayList<>();
         this.flightLenght = flightLenght;
         this.status = status;
+
+        this.day = day;
+        this.month = month;
+        this.minute = minute;
+        this.hour = hour;
     }
 
     //Getters
@@ -54,11 +60,17 @@ public class Flight
     public String getTo() {
         return to;
     }
-    public String getDate() {
-        return date;
-    }
     public int getHour() {
         return hour;
+    }
+    public int getMinute() {
+        return minute;
+    }
+    public int getMonth() {
+        return month;
+    }
+    public int getDay() {
+        return day;
     }
     public int getSoldTickets() {
         return soldTickets;
@@ -89,11 +101,17 @@ public class Flight
     public void setTo(String to) {
         this.to = to;
     }
-    public void setDate(String date) {
-        this.date = date;
-    }
     public void setHour(int hour) {
         this.hour = hour;
+    }
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+    public void setMonth(int month) {
+        this.month = month;
+    }
+    public void setDay(int day) {
+        this.day = day;
     }
     public void setSoldTickets(int soldTickets) {
         this.soldTickets = soldTickets;

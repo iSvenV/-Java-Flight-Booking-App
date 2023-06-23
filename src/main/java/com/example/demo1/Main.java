@@ -148,7 +148,7 @@ public class Main extends Application
         primaryStage.show();
     }
 
-    //Methods to check if Signup/Editing inputs already exsits for other users
+    //Methods to check if Signup/Editing inputs already exists for other users
     public static boolean checkID(int id, int index) {
         for(User obj : users)  {
             int currentIndex = users.indexOf(obj);

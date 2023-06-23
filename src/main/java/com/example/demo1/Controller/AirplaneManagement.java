@@ -65,7 +65,7 @@ public class AirplaneManagement implements Initializable
 
     @FXML
     void pressedFlights(ActionEvent event) throws IOException {
-        Main.sceneSwitch("FlightManagement.fxml", event, 520, 400);
+        Main.sceneSwitch("FlightManagement.fxml", event, 694, 400);
     }
 
     @FXML
