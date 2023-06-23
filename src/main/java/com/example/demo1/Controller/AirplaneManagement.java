@@ -64,6 +64,11 @@ public class AirplaneManagement implements Initializable
     }
 
     @FXML
+    void pressedFlights(ActionEvent event) throws IOException {
+        Main.sceneSwitch("FlightManagement.fxml", event, 520, 400);
+    }
+
+    @FXML
     void pressedAdd(ActionEvent event) throws IOException {
         Stage addStage = new Stage();
         addStage.initModality(Modality.APPLICATION_MODAL);
@@ -78,13 +83,17 @@ public class AirplaneManagement implements Initializable
     }
 
     @FXML
-    void pressedEdit(ActionEvent event) {
-
-    }
-
-    @FXML
-    void pressedFlights(ActionEvent event) {
-
+    void pressedEdit(ActionEvent event) throws IOException {
+        Stage addStage = new Stage();
+        addStage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/AirplaneEdit.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 374, 296);
+        addStage.getIcons().add(new Image("icon.png"));
+        addStage.setTitle("Munix");
+        addStage.setResizable(false);
+        addStage.setScene(scene);
+        addStage.show();
     }
 
     @FXML
