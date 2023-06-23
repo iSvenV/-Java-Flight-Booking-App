@@ -120,7 +120,7 @@ public class ManagerManagement implements Initializable
         Main.sceneSwitch("AdminMenu.fxml", event, 520, 400);
     }
 
-    public static void updateLists(ListView<String> numList, ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
+    private static void updateLists(ListView<String> numList, ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
         try {
             numList.getItems().clear();
             idList.getItems().clear();

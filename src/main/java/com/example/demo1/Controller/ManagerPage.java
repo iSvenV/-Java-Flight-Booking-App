@@ -27,8 +27,8 @@ public class ManagerPage
     }
 
     @FXML
-    void pressedFlights(ActionEvent event) {
-
+    void pressedFlights(ActionEvent event) throws IOException {
+        Main.sceneSwitch("AirplaneManagement.fxml", event, 520, 400);
     }
 
     @FXML

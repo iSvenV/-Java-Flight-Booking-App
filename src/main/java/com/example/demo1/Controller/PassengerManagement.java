@@ -96,7 +96,7 @@ public class PassengerManagement implements Initializable
         addStage.show();
     }
 
-    public static void updateLists(ListView<String> numList, ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
+    private static void updateLists(ListView<String> numList, ListView<String> idList, ListView<String> nameList, ListView<String> usernameList, ListView<String> emailList) {
         try {
             numList.getItems().clear();
             idList.getItems().clear();

@@ -1,10 +1,8 @@
 package com.example.demo1;
-import Model.Airport.Feedback;
-import Model.Airport.Manager;
-import Model.Airport.Passenger;
-import Model.Airport.User;
+import Model.Airport.*;
 import Model.Departments.*;
 import Model.Persons.*;
+import Model.Persons.Employee;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +64,8 @@ public class Main extends Application
 //    public static ArrayList<Library> libraries = new ArrayList<>();
 //    public static ArrayList<University> universities = new ArrayList<>();
 
+    public static ArrayList<Flight> allFlights = new ArrayList<>();
+    public static ArrayList<Airplane> airplanes = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Passenger> passengers = new ArrayList<>();
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
@@ -215,5 +215,32 @@ public class Main extends Application
     public static boolean regexEmail(String str) {
         Pattern p = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", Pattern.CASE_INSENSITIVE);
         return p.matcher(str).find();
+    }
+
+    //ID-Checkers for Airplanes & Flights
+    public static boolean airplaneCheckID(int id, int index) {
+        for(Airplane obj : airplanes)  {
+            int currentIndex = airplanes.indexOf(obj);
+            if(!(index ==-1))
+                if(currentIndex == index)
+                    continue;
+
+            if(id == obj.getId())
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean flightCheckID(int id, int index) {
+        for(Flight obj : allFlights)  {
+            int currentIndex = allFlights.indexOf(obj);
+            if(!(index ==-1))
+                if(currentIndex == index)
+                    continue;
+
+            if(id == obj.getId())
+                return false;
+        }
+        return true;
     }
 }
