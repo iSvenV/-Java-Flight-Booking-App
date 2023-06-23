@@ -11,7 +11,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -57,8 +56,10 @@ public class FlightEdit implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         appliedLabel.setVisible(false);
+
         int planeIndex = AirplaneManagement.selectedAirplane;
         int flightIndex = FlightManagement.selectedFlight;
+        titleLabel.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getId()+"");
 
         inputID.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getId()+"");
         inputFrom.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getFrom());
