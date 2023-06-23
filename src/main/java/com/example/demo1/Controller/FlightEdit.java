@@ -1,15 +1,11 @@
 package com.example.demo1.Controller;
 import Model.Airport.Flight;
-import Model.Departments.*;
 import com.example.demo1.Main;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -19,22 +15,22 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FlightAdd implements Initializable
+public class FlightEdit implements Initializable
 {
     @FXML
     private RadioButton airborneBox;
     @FXML
     private Button buttonBack;
     @FXML
-    private Button buttonCreate;
+    private Button buttonApply;
     @FXML
     private RadioButton canceledBox;
     @FXML
-    private TextField inputMonth;
+    private Label checker;
+    @FXML
+    private Label appliedLabel;
     @FXML
     private TextField inputDay;
-    @FXML
-    private Label checker;
     @FXML
     private TextField inputFrom;
     @FXML
@@ -46,6 +42,8 @@ public class FlightAdd implements Initializable
     @FXML
     private TextField inputMinute;
     @FXML
+    private TextField inputMonth;
+    @FXML
     private TextField inputTo;
     @FXML
     private RadioButton landedBox;
@@ -53,60 +51,54 @@ public class FlightAdd implements Initializable
     private RadioButton openBox;
     @FXML
     private ToggleGroup status;
+    @FXML
+    private Label titleLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        buttonCreate.setDisable(true);
-        openBox.setSelected(true);
-        selectedStatus="open";
+        appliedLabel.setVisible(false);
+        int planeIndex = AirplaneManagement.selectedAirplane;
+        int flightIndex = FlightManagement.selectedFlight;
 
-//        String[] dayBoxes = new String[31];
-//        for(int i=0; i<31; i++)
-//            dayBoxes[i] = (i++)+"";
-//        checkboxDay.getItems().addAll(dayBoxes);
-//        checkboxDay.setValue("1");
-//        checkboxDay.setOnAction(this::selectedDay);
-//
-//        String[] monthBoxes = new String[12];
-//        for(int i=0; i<12; i++)
-//            dayBoxes[i] = (i++)+"";
-//        checkboxMonth.getItems().addAll(monthBoxes);
-//        checkboxMonth.setValue("1");
-//        checkboxMonth.setOnAction(this::selectedDay);
+        inputID.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getId()+"");
+        inputFrom.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getFrom());
+        inputTo.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getTo());
+        inputMonth.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getMonth()+"");
+        inputDay.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getDay()+"");
+        inputHour.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getHour()+"");
+        inputMinute.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getMinute()+"");
+        inputLength.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getFlightLenght()+"");
 
-        inputID.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-                if (!(t1.equals("")))
-                    inputFrom.textProperty().addListener(new ChangeListener<String>() {
-                        @Override
-                        public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-                            if(!(t1.equals("")))
-                                inputTo.textProperty().addListener(new ChangeListener<String>() {
-                                    @Override
-                                    public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-                                        if(!(t1.equals("")))
-                                            inputLength.textProperty().addListener(new ChangeListener<String>() {
-                                                @Override
-                                                public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-                                                    if(!(t1.equals("")))
-                                                        buttonCreate.setDisable(false);
-                                                }
-                                            });
-                                    }
-                                });
-                        }
-                    });
-            }
-        });
+        switch (Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getStatus() + "") {
+            case "OPEN":
+                openBox.setSelected(true);
+                selectedStatus = "open";
+                break;
+            case "CANCELED":
+                canceledBox.setSelected(true);
+                selectedStatus = "canceled";
+                break;
+            case "AIRBORNE":
+                airborneBox.setSelected(true);
+                selectedStatus = "airborne";
+                break;
+            case "LANDED":
+                landedBox.setSelected(true);
+                selectedStatus = "landed";
+                break;
+        }
     }
 
     @FXML
-    void pressedCreate(ActionEvent event) {
-        int id = 0;
+    void pressedApply(ActionEvent event) {
+        appliedLabel.setVisible(false);
+        int index = FlightManagement.selectedFlight;
+        int generalIndex = Main.allFlights.indexOf(Main.airplanes.get(AirplaneManagement.selectedAirplane).getFlights().get(index));
+
+        int id;
         try {
             id = Integer.parseInt(inputID.getText());
-            if(!Main.flightCheckID(id, -1)) {
+            if(!Main.flightCheckID(id, generalIndex)) {
                 checker.setText("a flight with this ID already exists!");
                 return;
             }
@@ -205,27 +197,35 @@ public class FlightAdd implements Initializable
             return;
         }
 
-        Flight obj = null;
+        int planeIndex = AirplaneManagement.selectedAirplane;
+        int flightIndex = FlightManagement.selectedFlight;
+
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setId(id);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setFrom(from);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setTo(to);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setMonth(month);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setDay(day);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setHour(hour);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setMinute(minute);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setFlightLenght(length);
+
         switch(selectedStatus) {
             case "open":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.OPEN);
+                Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.OPEN);
                 break;
             case "canceled":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.CANCELED);
+                Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.CANCELED);
                 break;
             case "airborne":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.AIRBORNE);
+                Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.AIRBORNE);
                 break;
             case "landed":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.LANDED);
+                Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.LANDED);
                 break;
         }
 
-        Main.allFlights.add(obj);
-        Main.airplanes.get(AirplaneManagement.selectedAirplane).getFlights().add(obj);
-
-        Stage addStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        addStage.close();
+        checker.setText("");
+        appliedLabel.setVisible(true);
     }
 
     @FXML
@@ -246,14 +246,4 @@ public class FlightAdd implements Initializable
         else if(landedBox.isSelected())
             selectedStatus="landed";
     }
-
-//    private static String selectedDay;
-//    private void selectedDay(ActionEvent event) {
-//        selectedDay = checkboxDay.getValue();
-//    }
-//
-//    private static String selectedMonth;
-//    private void selectedMonth(ActionEvent event) {
-//        selectedMonth = checkboxMonth.getValue();
-//    }
 }
