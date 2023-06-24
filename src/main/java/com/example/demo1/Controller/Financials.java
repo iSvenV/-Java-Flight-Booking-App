@@ -118,7 +118,7 @@ public class Financials implements Initializable
                         idList.getItems().add(obj.getId() + "");
                         nameList.getItems().add(obj.getFullname());
                         roleList.getItems().add(obj.getRole().toString());
-                        salaryList.getItems().add(obj.getSalary() + "");
+                        salaryList.getItems().add(obj.getWallet() + "");
                     }
                 }
             }

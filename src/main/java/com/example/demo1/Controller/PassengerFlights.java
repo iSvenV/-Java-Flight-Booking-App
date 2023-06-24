@@ -46,7 +46,7 @@ public class PassengerFlights implements Initializable
     @FXML
     private ListView<String> toList;
 
-    protected int selectedFlight;
+    protected static int selectedFlight;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,7 +73,42 @@ public class PassengerFlights implements Initializable
 
     @FXML
     void pressedBuy(ActionEvent event) {
+        purchaseLabel.setVisible(false);
+        int input;
+        try { input = Integer.parseInt(inputTicketNum.getText()); }
+        catch (Exception e) {
+            checker.setText("input is invalid!");
+            System.out.println("Couldn't Cast String to Integer!");
+            Main.appendToFile(e);
+            return;
+        }
 
+        if(input<=0) {
+            checker.setText("input is invalid!");
+            return;
+        }
+
+        double payment = input * Main.allFlights.get(selectedFlight).getTicket().getPrice();
+        if(Main.passengers.get(AirportLogin.userIndex).getWallet() < payment) {
+            checker.setText("you don't have enough balance!");
+            return;
+        }
+
+        int availableTickets = Main.allFlights.get(selectedFlight).getPlane().getSeats() - Main.allFlights.get(selectedFlight).getSoldTickets();
+        if(availableTickets < input) {
+            checker.setText("only "+availableTickets+" Seats are available for purchase!");
+            return;
+        }
+
+        purchaseLabel.setVisible(true);
+
+        for(int i=0; i<input; i++)
+            Main.passengers.get(AirportLogin.userIndex).getTickets().add(Main.allFlights.get(selectedFlight).getTicket());
+
+        Main.passengers.get(AirportLogin.userIndex).decrementWallet(payment);
+        Main.allFlights.get(selectedFlight).increaseSoldTickets(input);
+        Main.allFlights.get(selectedFlight).getPassengers().add(Main.passengers.get(AirportLogin.userIndex));
+        updateLists(numList, idList, fromList, toList, dateList, timeList, lengthList, ticketsList, priceList);
     }
 
     @FXML

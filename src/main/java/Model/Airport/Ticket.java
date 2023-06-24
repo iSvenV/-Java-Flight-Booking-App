@@ -5,8 +5,9 @@ public class Ticket
     private int id;
     private double price;
     private double penalty;
+    private Flight flight;
 
-    //Constructor
+    //Constructors
     public Ticket(int id, double price, double penalty) {
         this.id = id;
         this.price = price;
@@ -23,6 +24,9 @@ public class Ticket
     public double getPenalty() {
         return penalty;
     }
+    public Flight getFlight() {
+        return flight;
+    }
 
     //Setters
     public void setId(int id) {
@@ -33,5 +37,8 @@ public class Ticket
     }
     public void setPenalty(double penalty) {
         this.penalty = penalty;
+    }
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 }

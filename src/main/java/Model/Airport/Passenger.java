@@ -28,6 +28,9 @@ public class Passenger extends User
     public void incrementWallet(double value) {
         this.wallet += value;
     }
+    public void decrementWallet(double value) {
+        this.wallet -= value;
+    }
     public void addTicket(Ticket ticket) {
         tickets.add(ticket);
     }

@@ -29,19 +29,19 @@ public class Flight
     }
 
     //Constructor
-    public Flight(int id, Airplane plane, String from, String to, int day, int month, int minute, int hour, int flightLenght, Status status) {
+    public Flight(int id, Airplane plane, String from, String to, int day, int month, int minute, int hour, int flightLenght, Status status, double price, double penalty) {
         this.id = id;
         this.plane = plane;
         this.from = from;
         this.to = to;
-        this.passengers = new ArrayList<>();
         this.flightLenght = flightLenght;
         this.status = status;
-
         this.day = day;
         this.month = month;
         this.minute = minute;
         this.hour = hour;
+        this.passengers = new ArrayList<>();
+        this.ticket = new Ticket(id, price, penalty);
     }
 
     //Getters
@@ -124,5 +124,12 @@ public class Flight
     }
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void increaseSoldTickets(int x) {
+        this.soldTickets += x;
+    }
+    public void decreaseSoldTickets(int x) {
+        this.soldTickets -= x;
     }
 }

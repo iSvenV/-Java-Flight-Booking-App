@@ -82,7 +82,7 @@ public class FlightManagement implements Initializable
         addStage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/FlightAdd.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 374, 455);
+        Scene scene = new Scene(root, 374, 521);
         addStage.getIcons().add(new Image("icon.png"));
         addStage.setTitle("Munix");
         addStage.setResizable(false);
@@ -96,7 +96,7 @@ public class FlightManagement implements Initializable
         addStage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/FlightEdit.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 374, 455);
+        Scene scene = new Scene(root, 374, 521);
         addStage.getIcons().add(new Image("icon.png"));
         addStage.setTitle("Munix");
         addStage.setResizable(false);

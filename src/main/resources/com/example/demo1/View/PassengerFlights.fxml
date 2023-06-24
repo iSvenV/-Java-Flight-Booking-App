@@ -46,7 +46,7 @@
             <ListView fx:id="priceList" layoutX="553.0" layoutY="78.0" prefHeight="220.0" prefWidth="86.0" style="-fx-border-color: black;" />
             <Label alignment="CENTER" layoutX="553.0" layoutY="57.0" prefHeight="21.0" prefWidth="86.0" style="-fx-background-color: gray; -fx-border-color: black;" text="Price" />
             <Label fx:id="checker" alignment="CENTER" layoutX="148.0" layoutY="319.0" prefHeight="17.0" prefWidth="211.0" textFill="RED" />
-            <Label fx:id="purchaseLabel" alignment="CENTER" layoutX="148.0" layoutY="319.0" prefHeight="17.0" prefWidth="211.0" text="ticket(s) purchased successfully!" textFill="#1af434" />
+            <Label fx:id="purchaseLabel" alignment="CENTER" layoutX="126.0" layoutY="319.0" prefHeight="17.0" prefWidth="243.0" text="ticket(s) purchased successfully!" textFill="#1af434" />
             </children>
         </AnchorPane>
     </children>

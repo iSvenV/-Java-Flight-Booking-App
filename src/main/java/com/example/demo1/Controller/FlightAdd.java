@@ -1,5 +1,6 @@
 package com.example.demo1.Controller;
 import Model.Airport.Flight;
+import Model.Airport.Ticket;
 import Model.Departments.*;
 import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
@@ -15,7 +16,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,6 +47,10 @@ public class FlightAdd implements Initializable
     private TextField inputMinute;
     @FXML
     private TextField inputTo;
+    @FXML
+    private TextField inputPrice;
+    @FXML
+    private TextField inputPenalty;
     @FXML
     private RadioButton landedBox;
     @FXML
@@ -90,7 +94,19 @@ public class FlightAdd implements Initializable
                                                 @Override
                                                 public void changed(ObservableValue<? extends String> ov, String t, String t1) {
                                                     if(!(t1.equals("")))
-                                                        buttonCreate.setDisable(false);
+                                                        inputPrice.textProperty().addListener(new ChangeListener<String>() {
+                                                            @Override
+                                                            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                                if(!(t1.equals("")))
+                                                                    inputPenalty.textProperty().addListener(new ChangeListener<String>() {
+                                                                        @Override
+                                                                        public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                                                                            if(!(t1.equals("")))
+                                                                                buttonCreate.setDisable(false);
+                                                                        }
+                                                                    });
+                                                            }
+                                                        });
                                                 }
                                             });
                                     }
@@ -205,19 +221,41 @@ public class FlightAdd implements Initializable
             return;
         }
 
+        double price;
+        try { price = Double.parseDouble(inputPrice.getText()); }
+        catch(Exception e) {
+            checker.setText("Ticket Price input is invalid!");
+            System.out.println("Couldn't Cast String to Double!");
+            Main.appendToFile(e);
+            return;
+        }
+
+        double penalty;
+        try { penalty = Double.parseDouble(inputPrice.getText()); }
+        catch(Exception e) {
+            checker.setText("Ticket Penalty input is invalid!");
+            System.out.println("Couldn't Cast String to Double!");
+            Main.appendToFile(e);
+            return;
+        }
+
         Flight obj = null;
         switch(selectedStatus) {
             case "open":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.OPEN);
+                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.OPEN, price, penalty);
+                obj.getTicket().setFlight(obj);
                 break;
             case "canceled":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.CANCELED);
+                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.CANCELED, price, penalty);
+                obj.getTicket().setFlight(obj);
                 break;
             case "airborne":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.AIRBORNE);
+                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.AIRBORNE, price, penalty);
+                obj.getTicket().setFlight(obj);
                 break;
             case "landed":
-                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.LANDED);
+                obj = new Flight(id, Main.airplanes.get(AirplaneManagement.selectedAirplane), from, to, day, month, minute, hour, length, Flight.Status.LANDED, price, penalty);
+                obj.getTicket().setFlight(obj);
                 break;
         }
 

@@ -84,26 +84,18 @@ public class Main extends Application
         Institute institute = new Institute("institute1", 2001);
         Library library = new Library("library1", 2012);
         University university = new University("university1", 1999);
+
         members.add(mayor);
         members.add(deputy);
         members.add(employee);
         members.add(inspector);
         members.add(security);
-//        mayors.add(mayor);
-//        deputies.add(deputy);
-//        employees.add(employee);
-//        inspectors.add(inspector);
-//        securities.add(security);
+
         departments.add(airport);
         departments.add(hospital);
         departments.add(institute);
         departments.add(library);
         departments.add(university);
-//        airports.add(airport);
-//        hospitals.add(hospital);
-//        institutes.add(Institute);
-//        libraries.add(library);
-//        universities.add(university);
 
         //PHASE 2
         users.add(superAdmin);
@@ -119,6 +111,19 @@ public class Main extends Application
         Passenger passenger1 = new Passenger(201, "first passenger", "pas", "pas", "09189999", "pas1@gmail.com");
         users.add(passenger1);
         passengers.add(passenger1);
+
+        Airplane airplane1 = new Airplane(101, 300);
+        Airplane airplane2 = new Airplane(102, 300);
+        Flight flight1 = new Flight(101, airplane1, "Ahvaz", "Tehran", 10, 4, 30, 8, 2, Flight.Status.OPEN, 100, 60);
+        Flight flight2 = new Flight(102, airplane2, "Ahvaz", "Tehran", 10, 4, 30, 8, 2, Flight.Status.OPEN, 100, 60);
+        flight1.getTicket().setFlight(flight1);
+        flight2.getTicket().setFlight(flight2);
+        airplane1.getFlights().add(flight1);
+        airplane2.getFlights().add(flight2);
+        airplanes.add(airplane1);
+        airplanes.add(airplane2);
+        allFlights.add(flight1);
+        allFlights.add(flight2);
     }
 
     //Error Logging

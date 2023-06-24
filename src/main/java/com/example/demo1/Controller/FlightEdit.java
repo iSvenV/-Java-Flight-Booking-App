@@ -31,6 +31,10 @@ public class FlightEdit implements Initializable
     @FXML
     private TextField inputDay;
     @FXML
+    private TextField inputPrice;
+    @FXML
+    private TextField inputPenalty;
+    @FXML
     private TextField inputFrom;
     @FXML
     private TextField inputHour;
@@ -69,6 +73,8 @@ public class FlightEdit implements Initializable
         inputHour.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getHour()+"");
         inputMinute.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getMinute()+"");
         inputLength.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getFlightLenght()+"");
+        inputPrice.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getTicket().getPrice()+"");
+        inputPenalty.setText(Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getTicket().getPenalty()+"");
 
         switch (Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getStatus() + "") {
             case "OPEN":
@@ -198,6 +204,24 @@ public class FlightEdit implements Initializable
             return;
         }
 
+        double price;
+        try { price = Double.parseDouble(inputPrice.getText()); }
+        catch(Exception e) {
+            checker.setText("Ticket Price input is invalid!");
+            System.out.println("Couldn't Cast String to Double!");
+            Main.appendToFile(e);
+            return;
+        }
+
+        double penalty;
+        try { penalty = Double.parseDouble(inputPrice.getText()); }
+        catch(Exception e) {
+            checker.setText("Ticket Penalty input is invalid!");
+            System.out.println("Couldn't Cast String to Double!");
+            Main.appendToFile(e);
+            return;
+        }
+
         int planeIndex = AirplaneManagement.selectedAirplane;
         int flightIndex = FlightManagement.selectedFlight;
 
@@ -209,19 +233,38 @@ public class FlightEdit implements Initializable
         Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setHour(hour);
         Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setMinute(minute);
         Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setFlightLenght(length);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getTicket().setPrice(price);
+        Main.airplanes.get(planeIndex).getFlights().get(flightIndex).getTicket().setPenalty(penalty);
+
+        int allFlights_Index = Main.allFlights.indexOf(Main.airplanes.get(planeIndex).getFlights().get(flightIndex));
+        Main.allFlights.get(allFlights_Index).setId(id);
+        Main.allFlights.get(allFlights_Index).setFrom(from);
+        Main.allFlights.get(allFlights_Index).setTo(to);
+        Main.allFlights.get(allFlights_Index).setMonth(month);
+        Main.allFlights.get(allFlights_Index).setDay(day);
+        Main.allFlights.get(allFlights_Index).setHour(hour);
+        Main.allFlights.get(allFlights_Index).setMinute(minute);
+        Main.allFlights.get(allFlights_Index).setFlightLenght(length);
+        Main.allFlights.get(allFlights_Index).getTicket().setPrice(price);
+        Main.allFlights.get(allFlights_Index).getTicket().setPenalty(penalty);
+
 
         switch(selectedStatus) {
             case "open":
                 Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.OPEN);
+                Main.allFlights.get(allFlights_Index).setStatus(Flight.Status.OPEN);
                 break;
             case "canceled":
                 Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.CANCELED);
+                Main.allFlights.get(allFlights_Index).setStatus(Flight.Status.CANCELED);
                 break;
             case "airborne":
                 Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.AIRBORNE);
+                Main.allFlights.get(allFlights_Index).setStatus(Flight.Status.AIRBORNE);
                 break;
             case "landed":
                 Main.airplanes.get(planeIndex).getFlights().get(flightIndex).setStatus(Flight.Status.LANDED);
+                Main.allFlights.get(allFlights_Index).setStatus(Flight.Status.LANDED);
                 break;
         }
 
