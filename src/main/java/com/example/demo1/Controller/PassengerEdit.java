@@ -1,5 +1,6 @@
 package com.example.demo1.Controller;
 import Model.Airport.Passenger;
+import Model.Airport.Report;
 import com.example.demo1.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -159,6 +160,7 @@ public class PassengerEdit implements Initializable
 
         checker.setText("");
         appliedLabel.setVisible(true);
+        Main.reports.add(new Report("profile edited.", Main.passengers.get(index)));
     }
 
     @FXML

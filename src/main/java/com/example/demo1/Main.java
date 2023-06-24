@@ -71,6 +71,7 @@ public class Main extends Application
     public static ArrayList<Model.Airport.Employee> employees = new ArrayList<>();
     public static ArrayList<Manager> managers = new ArrayList<>();
     public static ArrayList<Feedback> feedbacks = new ArrayList<>();
+    public static ArrayList<Report> reports = new ArrayList<>();
     public static Manager superAdmin = new Manager(0, "ADMIN ADMIN", "admin", "admin", "0918914", "admin@gmail.com", "Ahvaz");
 
     private static void initiate() {

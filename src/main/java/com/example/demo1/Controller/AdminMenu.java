@@ -69,8 +69,8 @@ public class AdminMenu
     }
 
     @FXML
-    void pressedReport(ActionEvent event) {
-
+    void pressedReport(ActionEvent event) throws IOException {
+        Main.sceneSwitch("Reports.fxml", event, 520, 400);
     }
 
     @FXML
