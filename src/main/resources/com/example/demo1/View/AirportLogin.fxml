@@ -90,7 +90,12 @@
                   <Font size="10.0" />
                </font>
             </CheckBox>
-            <Button fx:id="buttonCreate" layoutX="56.0" layoutY="340.0" mnemonicParsing="false" onAction="#pressedCreate" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: trans;" text="create a new account" textFill="#33adff">
+            <Button fx:id="buttonCreate" layoutX="56.0" layoutY="340.0" mnemonicParsing="false" onAction="#pressedCreate" prefHeight="9.0" prefWidth="113.0" style="-fx-background-color: trans;" text="create a new account" textFill="#33adff">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonForgot" layoutX="58.0" layoutY="362.0" mnemonicParsing="false" onAction="#pressedForgot" prefHeight="9.0" prefWidth="113.0" style="-fx-background-color: trans;" text="forgot password" textFill="#33adff">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>

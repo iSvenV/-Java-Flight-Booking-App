@@ -35,6 +35,8 @@ public class AirportLogin implements Initializable
     @FXML
     private Button departmentButton;
     @FXML
+    private Button buttonForgot;
+    @FXML
     private PasswordField inputPassword;
     @FXML
     private TextField inputUsername;
@@ -122,6 +124,20 @@ public class AirportLogin implements Initializable
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/AirportSignup.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 374, 455);
+        addStage.getIcons().add(new Image("icon.png"));
+        addStage.setTitle("Munix");
+        addStage.setResizable(false);
+        addStage.setScene(scene);
+        addStage.show();
+    }
+
+    @FXML
+    void pressedForgot(ActionEvent event) throws IOException {
+        Stage addStage = new Stage();
+        addStage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/View/RecoverPassword.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 370, 399);
         addStage.getIcons().add(new Image("icon.png"));
         addStage.setTitle("Munix");
         addStage.setResizable(false);
