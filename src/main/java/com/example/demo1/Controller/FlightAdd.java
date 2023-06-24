@@ -213,7 +213,13 @@ public class FlightAdd implements Initializable
         }
 
         int length;
-        try { length = Integer.parseInt(inputLength.getText()); }
+        try {
+            length = Integer.parseInt(inputLength.getText());
+            if(length==0) {
+                checker.setText("Flight length cannot be zero!");
+                return;
+            }
+        }
         catch(Exception e) {
             checker.setText("Flight Length input is invalid!");
             System.out.println("Couldn't Cast String to Integer!");

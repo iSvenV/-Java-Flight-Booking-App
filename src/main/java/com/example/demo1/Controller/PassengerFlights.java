@@ -1,5 +1,6 @@
 package com.example.demo1.Controller;
 import Model.Airport.Flight;
+import Model.Airport.Ticket;
 import com.example.demo1.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -10,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -74,6 +74,38 @@ public class PassengerFlights implements Initializable
     @FXML
     void pressedBuy(ActionEvent event) {
         purchaseLabel.setVisible(false);
+        for(Ticket obj : Main.passengers.get(AirportLogin.userIndex).getTickets()) {
+            Flight currentFlight = Main.allFlights.get(selectedFlight);
+            Flight checkingFlight = obj.getFlight();
+            int checkingFlightEnd = checkingFlight.getHour()+checkingFlight.getFlightLenght();
+            int currentFlightEnd = currentFlight.getHour()+currentFlight.getFlightLenght();
+
+            //Skipping if checking flight is equal to selected flight
+            if(checkingFlight == currentFlight)
+                continue;
+
+            //Checking if flights are in the same day
+            if(checkingFlight.getMonth()==currentFlight.getMonth() && checkingFlight.getDay()==currentFlight.getDay()) {
+                //Checking if flights start at the same time
+                if(checkingFlight.getHour()==currentFlight.getHour() && checkingFlight.getMinute()==currentFlight.getMinute()) {
+                    checker.setText("failed to purchase ticket! there is an interference with your other ticket(s)!");
+                    return;
+                }
+                //Checking if other flights start before current flight and interference
+                if(checkingFlight.getHour()<currentFlight.getHour() && checkingFlight.getMinute()<currentFlight.getMinute())
+                    if(checkingFlightEnd > currentFlight.getHour()) {
+                        checker.setText("failed to purchase ticket! there is an interference with your other ticket(s)!");
+                        return;
+                    }
+                //Checking if other flights start after current flight and interference
+                if(checkingFlight.getHour()>currentFlight.getHour() && checkingFlight.getMinute()>currentFlight.getMinute())
+                    if(checkingFlight.getHour()<currentFlightEnd) {
+                        checker.setText("failed to purchase ticket! there is an interference with your other ticket(s)!");
+                        return;
+                    }
+            }
+        }
+
         int input;
         try { input = Integer.parseInt(inputTicketNum.getText()); }
         catch (Exception e) {

@@ -44,7 +44,7 @@ public class PassengerPage implements Initializable
 
     @FXML
     void pressedBuy(ActionEvent event) throws IOException {
-        Main.sceneSwitch("PassengerFlights.fxml", event, 694, 400);
+        Main.sceneSwitch("PassengerFlights.fxml", event, 694, 423);
     }
 
     @FXML
