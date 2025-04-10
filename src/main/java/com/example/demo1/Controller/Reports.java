@@ -43,8 +43,8 @@ public class Reports implements Initializable
 
             for (Report obj : Main.reports) {
                 numList.getItems().add(Integer.toString(Main.reports.indexOf(obj) + 1));
-                idList.getItems().add(obj.getManager().getId()+"");
-                usernameList.getItems().add(obj.getManager().getUsername());
+                idList.getItems().add(obj.getUser().getId()+"");
+                usernameList.getItems().add(obj.getUser().getUsername());
                 reportList.getItems().add(obj.getDiscription());
             }
         } catch(Exception e) { Main.appendToFile(e); }

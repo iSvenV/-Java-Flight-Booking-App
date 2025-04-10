@@ -46,24 +46,13 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    //1
     public static boolean firstTimeInitial;
     public static Mayor mayor = new Mayor("name1", 1, 2000, "mayor", "mayor");
     public static Admin admin = new Admin();
-
     public static ArrayList<Municipality> members = new ArrayList<>();
-//    public static ArrayList<Mayor> mayors = new ArrayList<>();
-//    public static ArrayList<Deputy> deputies = new ArrayList<>();
-//    public static ArrayList<Employee> employees = new ArrayList<>();
-//    public static ArrayList<Inspector> inspectors = new ArrayList<>();
-//    public static ArrayList<Security> securities = new ArrayList<>();
-
     public static ArrayList<Department> departments = new ArrayList<>();
-//    public static ArrayList<Airport> airports = new ArrayList<>();
-//    public static ArrayList<Hospital> hospitals = new ArrayList<>();
-//    public static ArrayList<Institute> institutes = new ArrayList<>();
-//    public static ArrayList<Library> libraries = new ArrayList<>();
-//    public static ArrayList<University> universities = new ArrayList<>();
-
+    //2
     public static ArrayList<Flight> allFlights = new ArrayList<>();
     public static ArrayList<Airplane> airplanes = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();

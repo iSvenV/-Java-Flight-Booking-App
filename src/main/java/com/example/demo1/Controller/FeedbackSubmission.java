@@ -40,6 +40,7 @@ public class FeedbackSubmission implements Initializable
     public static String authorRole;
     @FXML
     void pressedBack(ActionEvent event) throws IOException {
+        authorRole = AirportLogin.userRole;
         if(authorRole.equals("passsenger"))
             Main.sceneSwitch("PassengerPage.fxml", event, 520, 400);
         else

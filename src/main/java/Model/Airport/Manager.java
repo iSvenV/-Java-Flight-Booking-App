@@ -12,7 +12,6 @@ public class Manager extends User
     }
 
     //Getters
-
     public String getAddress() {
         return address;
     }
